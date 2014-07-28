@@ -106,13 +106,25 @@ All default settings can be overridden using corresponding command line options.
 
 ### Local Tunnels  (Experimental) 
 
-You can use this to punch a hole in your firewall and expose the server to to a subdomain of [localtunnel.me](http://localtunnel.me).  Use this to demo or test development versions of your app to external users or to connect your app server to device test farms.
+The  `--localtunnel` server option screate an encrypted tunnel to a randomly generated subdomain of [localtunnel.me](http://localtunnel.me). This will *punch hole in your firewall* and expose your app server as an external service on the internet. 
 
-`$ stlive serve [-t|--localtunnel]` - Create an encrypted tunnel to localtunnel.me to expose as external service.
+Use this feature to demo or test development versions of your app to external users or to connect your app server to device test farms.
+
+**SECURITY WARNING:** While the node app server is generally reguarded as secure and should in theory only expose content files as read only, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**
+
+You can also use configure the `sessionSecret` property in ~/.stlive.config to configure a session encryption key for your server. Future versions may support server authentication.
+
+### Example:
+
+	$ cd MyApp
+	$ stlive serve --localtunnel
+
+	Starting in d:\Projects\STLIVE-Sandbox\MyApp ...
+	listening on 192.168.7.54:3000
+	localtunnel : https://jgwpgspbip.localtunnel.me
+
 
 On successful connection, the server will report it's URL endpoint as: http://<random>.localtunnel.me
-
-**SECURITY WARNING:** While the app server should in theory only expose content files as read only, there is some small risk that a security hole exists. NO penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**
 
 ### Configuration Options
 
@@ -127,7 +139,7 @@ The first time you run this app it will create a **~/.stlive.config** file that 
 
 ### Known Issues
 
-- Navigating back to the start page and then re-selecting the Live Update link sometimes appears to fail to restart the client as expected.  You may then need to stop and restart the app.
+- Navigating back to the start page and then re-selecting the Live Update link sometimes appears to fail to restart the live edit client.  **Workaround**: Stop and restart the mobile app.
 
 ### Licence
 

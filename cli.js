@@ -6,7 +6,8 @@ try {
         clone: true,
         cli: {
             boolean: {
-                'v': 'verbose'
+                'v': 'verbose',
+                't': 'localTunnel'
             },
             string: { 
                 'n': 'appName',

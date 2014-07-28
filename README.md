@@ -46,6 +46,7 @@ This app has been tested with:
   - **stlive create**   - Creates a new Sencha Touch 2.x + PhoneGap 3.x project with an embedded live client.
   - **stlive live add** - Add a live client to an existing Sencha Touch or PhoneGap project.
   - **stlive live remove** - Removes the live client from a project (for app store or production MDM deployment).
+  - **stlive live update** - Updates live client to latest version.
   - **stlive serve**    - Runs a live update server in your Sencha Touch or PhoneGap project folder.
 
   - **stlive version**  - Displays app version
@@ -87,7 +88,12 @@ All default settings can be overridden using corresponding command line options.
 
 ### Configuration Options
 
-The first time you run this app it will create a **~/.stlive.config** file that defines common properties and plugins it will preconfigure in new apps.  You can edit this file or use corresponding command line options to override these defaults. The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. For example, you can preconfigure defaults like your company's reversed domain name (com.mycompany) or a set of commonly used plugins.
+The first time you run this app it will create a **~/.stlive.config** file that defines common properties and plugins it will preconfigure in new apps.  You can edit this file or use corresponding command line options to override these defaults. The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. For example, you can preconfigure these defaults that new projects will inherit: 
+
+- Your company's reversed domain name (com.mycompany)
+- A set of commonly used PhoneGap plugins
+- Your PhoneGap Build service user name and password
+- Watch directories used by `stlive serve`
 
 ### Known Issues
 
@@ -97,8 +103,5 @@ The first time you run this app it will create a **~/.stlive.config** file that 
 
 - Apache 2.0 
 
-### Acknowledgements
 
-- **Sench Touch** is a registered trademark of Sencha Inc.
-- **Apache PhoneGap** is registered trademark of Adobe Systems Inc.
 

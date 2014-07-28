@@ -1,6 +1,6 @@
 {
     "name": "stlive",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Sencha Touch / PhoneGap live edit client and server for rapid mobile app development.",
     "main": "./lib",
     "bin": {

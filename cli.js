@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 try {
     require('cli-config').run({
         dirname: __dirname,

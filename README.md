@@ -33,24 +33,42 @@ This tool is based on the same open source technology as the PhoneGap App but it
 
 ## Installation Requirements
 
-To use the Sencha Touch features of this app you must first prepare a Sencha Touch and PhoneGap development environment by following the **System Setup** as outlined on the [Sench Touch Guide](http://docs.sencha.com/touch/2.3.1/#!/guide/command).
+To use the Sencha Touch features of this app you must first prepare a Sencha Touch and PhoneGap development environment by following the **System Setup** as outlined in:
 
-This app has been tested with:
+ - [Sench Touch Guide](http://docs.sencha.com/touch/2.3.1/#!/guide/command).
+
+Unlike PhoneGap Developer App, this tool relies on the PhoneGap used by your project and attempts to be more version decoupled so should work with most versions of PhoneGap 3.x and Sencha Touch 2.x . However, to date this app has only been tested with:
  
 - [Sencha Cmd 4.0.4.84](http://www.sencha.com/products/sencha-cmd/download) 
 - [Sencha Touch 2.3.2](http://www.sencha.com/products/touch/download/) 
-- [PhoneGap 3.4.0](http://phonegap.com/install/)
+- [PhoneGap 3.5.0](http://phonegap.com/install/)
 
-### Command Summary
+Though not yet tested, it is also designed to work with a vanilla PhoneGap or Cordova projects so probably also works with jQuery Mobile with either PhoneGap 3.x or Cordova 3.x .  
 
-  - **stlive create**   - Creates a new Sencha Touch 2.x + PhoneGap 3.x project with an embedded live client.
-  - **stlive live add** - Add a live client to an existing Sencha Touch or PhoneGap project.
-  - **stlive live remove** - Removes the live client from a project (for app store or production MDM deployment).
-  - **stlive live update** - Updates live client to latest version.
-  - **stlive serve**    - Runs a live update server in your Sencha Touch or PhoneGap project folder.
+## Command Summary
 
-  - **stlive version**  - Displays app version
-  - **stlive settings** - Displays configured settings.  You can update these in `~/.stlive.config`
+### Create new Sencha Touch app
+
+  - `$ stlive create`   - Creates a new Sencha Touch 2.x + PhoneGap 3.x project with an embedded "live edit" client.
+ 
+### Instrument existing apps for "Live Edit"
+
+Run these command in a Sench Touch, PhoneGap or Cordova project folder:
+
+  - `$ stlive live add` - Add a live client to an existing Sencha Touch or PhoneGap project.
+  - `$ stlive live remove` - Removes the live client from a project (for app store or production MDM deployment).
+  - `$ stlive live update` - Updates live client to latest version.
+ 
+### Run "Live Edit" App Server 
+
+Run these command in a Sench Touch, PhoneGap or Cordova project folder:
+
+  - `$ stlive serve`    - Runs a live update server in your Sencha Touch or PhoneGap project folder
+
+### Info Commands
+
+  - `$ stlive version`  - Displays app version
+  - `$ stlive settings` - Displays configured settings.  You can update these in `~/.stlive.config`
 
 All default settings can be overridden using corresponding command line options.
 
@@ -86,14 +104,26 @@ All default settings can be overridden using corresponding command line options.
    - Open `app/views/Main.js` and change the Welcome message and save the file.
    - You should see the server reload the app and the new Welcome message displayed on the device.
 
+### Local Tunnels  (Experimental) 
+
+You can use this to punch a hole in your firewall and expose the server to to a subdomain of [localtunnel.me](http://localtunnel.me).  Use this to demo or test development versions of your app to external users or to connect your app server to device test farms.
+
+`$ stlive serve [-t|--localtunnel]` - Create an encrypted tunnel to localtunnel.me to expose as external service.
+
+On successful connection, the server will report it's URL endpoint as: http://<random>.localtunnel.me
+
+**SECURITY WARNING:** While the app server should in theory only expose content files as read only, there is some small risk that a security hole exists. NO penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**
+
 ### Configuration Options
 
-The first time you run this app it will create a **~/.stlive.config** file that defines common properties and plugins it will preconfigure in new apps.  You can edit this file or use corresponding command line options to override these defaults. The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. For example, you can preconfigure these defaults that new projects will inherit: 
+The first time you run this app it will create a **~/.stlive.config** file that defines default app settings. You can edit this file or use corresponding command line options to override any of these defaults. The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. For example, you can preconfigure these defaults that new projects will inherit: 
 
 - Your company's reversed domain name (com.mycompany)
 - A set of commonly used PhoneGap plugins
 - Your PhoneGap Build service user name and password
 - Watch directories used by `stlive serve`
+- localtunnel: true  - Permently enables local tunnel 
+- live: true
 
 ### Known Issues
 

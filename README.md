@@ -72,6 +72,12 @@ Though not yet tested, it is also designed to work with a vanilla PhoneGap or Co
 
   - `$ stlive create`   - Creates a new Sencha Touch 2.x + PhoneGap 3.x project with an embedded "live edit" client.
  
+### Create new Sencha Touch app
+
+Same as `sencha app build native` but it uses the version of sencha command configured in ~/.stlive.config .
+
+  - `$ stlive build`
+
 ### Instrument existing apps for "Live Edit"
 
 Run these command in a Sench Touch, PhoneGap or Cordova project folder:
@@ -93,11 +99,11 @@ Run these command in a Sench Touch, PhoneGap or Cordova project folder:
 
 All default settings can be overridden using corresponding command line options.
 
-## Example
+## Getting Started
 
 1. Create and compile a new Sencha Touch / PhoneGap app:
 
-    $ stlive create -n DemoApp -d
+    $ stlive create DemoApp
 
 2. Deploy the compiled APK file to an Android device or emulator:
 
@@ -165,7 +171,9 @@ Now show an external demo of your app using compressed code:
 
 ## Configuration Options
 
-The first time you run this app it will create a **~/.stlive.config** file that defines default app settings. You can edit this file or use corresponding command line options to override any of these defaults. The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. For example, you can preconfigure these defaults that new projects will inherit: 
+The first time you run this app it will create a **~/.stlive.config** file that defines default app settings. You can edit this file or use corresponding command line options to override any of these defaults. You can also place **.stlive.config** files in current or ancestor directories to configure project specific properties.
+
+The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. For example, you can preconfigure these defaults that new projects will inherit: 
 
 - Your company's reversed domain name (com.mycompany)
 - A set of commonly used PhoneGap plugins

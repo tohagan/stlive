@@ -2,16 +2,16 @@
     "name": "stlive",
     "version": "0.1.0",
     "description": "Sencha Touch / PhoneGap live edit client and server for rapid mobile app development.",
-    "main": "index.js",
+    "main": "./lib",
+    "bin": {
+        "stlive": "./cli.js"
+    },
     "author": {
         "name": "Tony O'Hagan",
         "email": "tony@ohagan.name"
     },
     "engines": {
         "node": ">=0.10.0"
-    },
-    "bin": {
-        "stlive": "bin/cli.js"
     },
     "dependencies": {
         "cli-config": "*",

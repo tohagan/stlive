@@ -27,5 +27,5 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="WebViewBounce" value="false" />
     <access origin="*" />
-    <content src="index.html" />
+    <content src="start.html" />
 </widget>

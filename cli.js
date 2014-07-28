@@ -2,22 +2,9 @@
 
 try {
     require('cli-config').run({
-        dirname: __dirname,
-        clone: true,
-        cli: {
-            boolean: {
-                'v': 'verbose',
-                't': 'localTunnel'
-            },
-            string: { 
-                'n': 'appName',
-                'd': 'appDomain'
-            },
-            // map options into commands
-            alias: {
-                '--version': 'version'
-            }
-        },
+        dirname: __dirname, 
+        clone: true,        // Clones default.config to '~/.stlive.config' 
+        ancestors: true,    // Search curr and ancestor dirs for '.stlive.config' files
         cmdTree: require('./lib')
     });
 } catch (ex) {

@@ -1,7 +1,7 @@
 {
     "name": "stlive",
-    "version": "0.1.1",
-    "description": "Sencha Touch / PhoneGap live edit client and server for rapid mobile app development.",
+    "version": "0.1.2",
+    "description": "Sencha Touch / PhoneGap / Cordova live edit client and server. Lived edit your JS/HTML/CSS source code and autosync to multiple mobile devices of mixed OS types.",
     "homepage": "http://github.com/tohagan/stlive",
     "repository": {
         "type": "git",
@@ -16,6 +16,29 @@
         "name": "Tony O'Hagan",
         "email": "tony@ohagan.name"
     },
+	"keywords": [
+	    "phonegap",
+		"cordova",
+        "sencha",
+        "sencha touch",
+		"touch",
+        "mobile",
+		"android",
+		"ios",
+		"blackberry",
+		"wp8",
+		"windows phone",
+        "apps",
+        "live",
+        "live edit",
+		"sync",
+		"development",
+		"deploy",
+		"test",
+		"testing",
+		"demo",
+		"localtunnel"
+    ],
     "engines": {
         "node": ">=0.10.0"
     },

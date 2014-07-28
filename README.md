@@ -68,13 +68,13 @@ Though not yet tested, it is also designed to work with a vanilla PhoneGap or Co
 
 ## Command Summary
 
-### Create new Sencha Touch app
+### Create new Sencha Touch app with "Live Edit" 
 
-  - `$ stlive create`   - Creates a new Sencha Touch 2.x + PhoneGap 3.x project with an embedded "live edit" client.
+  - `$ stlive create`   - Creates a new Sencha Touch 2.x + PhoneGap 3.x app with an embedded "live edit" client.
  
-### Create new Sencha Touch app
+### Builds a Sencha Touch app
 
-Same as `sencha app build native` but it uses the version of sencha command configured in ~/.stlive.config .
+Same as `sencha app build native` but it uses the version of sencha command configured in ~/.stlive.config or current/ancestor directories.
 
   - `$ stlive build`
 

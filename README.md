@@ -49,11 +49,17 @@ It should support the following project types:
 
 ## Installation
 
+Mac / Linux: 
+
+    $ sudo npm install stlive -g
+
+Windows: 
+
     $ npm install stlive -g
 
 ### Installation Requirements
 
-To use the Sencha Touch features of this app you must first prepare a Sencha Touch and PhoneGap development environment by following the **System Setup** as outlined in:
+To use the 'create' or 'build' commands in this app you must first prepare a Sencha Touch and PhoneGap development environment by following the **System Setup** as outlined in:
 
  - [Sench Touch Guide](http://docs.sencha.com/touch/2.3.1/#!/guide/command).
 
@@ -63,8 +69,7 @@ Unlike PhoneGap Developer App, this tool relies on the PhoneGap used by your pro
 - [Sencha Touch 2.3.2](http://www.sencha.com/products/touch/download/) 
 - [PhoneGap 3.5.0](http://phonegap.com/install/)
 
-Though not yet tested, it is also designed to work with a vanilla PhoneGap or Cordova projects so probably also works with jQuery Mobile with either PhoneGap 3.x or Cordova 3.x .  
-
+Though not yet tested, it is also designed to work with a vanilla PhoneGap or Cordova projects so probably also works with jQuery Mobile with either PhoneGap 3.x or Cordova 3.x .
 
 ## Command Summary
 

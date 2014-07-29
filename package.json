@@ -1,6 +1,6 @@
 {
     "name": "stlive",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Live edit your JS/HTML/CSS source code in Sencha Touch / PhoneGap / Cordova projects and autosync to multiple mobile devices of mixed OS types.",
     "homepage": "http://github.com/tohagan/stlive",
     "repository": {

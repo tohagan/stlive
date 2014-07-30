@@ -1,19 +1,21 @@
 
-# Live edit Sencha Touch, jQuery Mobile + PhoneGap/Cordova projects 
+## Live edit Sencha Touch, jQuery Mobile + PhoneGap/Cordova apps 
 
-Live edit your mobile app source code and auto sync changes to multiple devices and emulators of mixed OS types.
+If you're developing in a Javascript framework like [Sencha Touch](http://www.sencha.com/products/touch) or [jQuery Mobile](http://jquerymobile.com/) using [PhoneGap](http://phonegap.com/) or [Cordova](http://cordova.apache.org/) 
+to access native device features you can now edit your source code on your computer and use this tool 
+to immediately sync your code change for testing onto one or more mobiles devices ... all without needing to compile or redeploy your app!
 
-## Description
+### Description
 
-Traditionally when developing Sencha Touch apps on mobile and tablet devices you need to recompile the Sencha source code, then recompile that with the PhoneGap framework for each platform SDK and then redeploy each native app to the devices and emulators for testing (For Sencha apps this is done by `sencha app build -run native`). For native app development this can be a slow process that you have to repeat for each code change before you can test the change on a native device or emulator.
+Traditionally when developing Sencha Touch apps on mobile and tablet devices you need to minify and repackage the Sencha source code, then recompile that with the PhoneGap framework with each platform SDK compiler and then redeploy each native app to mobile devices and emulators for testing (For Sencha apps this is done by `sencha app build -run native`). For native app development this can be a slow process that you have to repeat for each code change before you can test the change on a native device or emulator.
 
 This tool allows you to massively speed up development of your PhoneGap and Sencha Touch native apps by **skipping** all of these steps!
 
-Using this tool you can update any Javascript, CSS or HTML source file on your development computer and it will instantly load your changes and restart the app on your device or emulators. This means you can live edit and test that your code change works on multiple devices! It even preserves the current client side route so in most cases you can immediately retest the active view without having to re-navigate to that view.
+Using this tool you can update any Javascript, CSS or HTML source file on your development computer and it will instantly load your changes and restart the app on your device or emulators. This means you can live edit and test changes as you save them onto multiple devices! It even preserves the current client side route so in most cases you can immediately retest the active view without having to re-navigate to that view.
 
-This means you can place any number of devices/emulators in front of you and instantly see the effect of your last code change one or more Android, iOS and WP8 devices!  You can even serve up source code from your local computer onto a cloud based device farm to instantly see your change on hundreds of different mobile device types.  
+This means you can place any number of devices/emulators in front of you and instantly see the effect of your last code change one or more Android, iOS and WP8 devices!  You can even serve up your source code from your local computer onto a cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices.  
 
-You can also keep your remote debuggers connected while each update occurs so you save more time by not having to restart your remote debuggers.  Since the Javascipt source code is not minified, it's also much easier to debug. You can also elect to load the original Sench Touch JS class files onto the device making debugging of framework code easier at some small cost to app reload time.
+You can also keep your remote debuggers connected while each update occurs so you save more time by not having to restart your remote debuggers.  Since the Javascipt source code is not minified, it's also much easier to debug. You can also elect to load the original unminified Sench Touch framework files onto the device making debugging of framework code easier.
 
 ### The Problem
 
@@ -23,17 +25,17 @@ What you really need is a live update client and server that have identical plug
 
 ### The Solution
 
-To solve this, I created **stlive** to create, modify and serve live editable Sencha Touch or PhoneGap projects.
+To solve this, I created **stlive** to create, modify and serve live editable Sencha Touch or other PhoneGap based JS framework projects.
 
-This tool allows you to instrument a new or existing mobile project to support live updating. On startup your instrumented mobile app will offer you options to either (a) run your existing native app or (b) start up a live update client that connects to an `stlive` server that can dispatch your original unmodified HTML/CCS/JS source code from your project folder onto the device.  It also dispatches platform specific code (e.g. Cordova plugin javascript) from **your app project**. The `stlive` server then watches for any changes in your source code files and will notify the client to reload your project source code and restart your app whenever you change a source file.
+This tool allows you to instrument a new or existing mobile project to support live updating. On startup your instrumented mobile app will offer you options to either (a) run your existing fully compiled and minified native app or (b) start up a live update client that connects to an `stlive` server that can dispatch your original unmodified HTML/CCS/JS source code from your project folder onto the device.  It also dispatches platform specific code (e.g. Cordova plugin javascript) from **your app project**. The `stlive` server then watches for any changes in your source code files and will notify the client to reload your project source code and restart your app whenever you change a source file.
 
-Unlike PhoneGap Developer App, the live update client and server components and your final native app are now running identically configured Cordova plugins since they are all using the same PhoneGap project instance to do so.  For testing purposes you can be assured that the native app and live update client will be running identical PhoneGap configurations since they are now compiled and deployed as one app and the server is dispatching the same plugin source code.
+Unlike the current PhoneGap Developer App, the live update client and server components and your final native app are now running identically configured Cordova plugins since they are all using the same PhoneGap project instance to do so.  For testing purposes you can be assured that the native app and live update client will be running identical PhoneGap configurations since they are now compiled and deployed as one app and the server is dispatching the same plugin source code.
 
 Using this tool you should be able to complete most of your development and testing using the live update client, only needing to rebuild and redeploy when your project's Cordova plugin configuration is changed.
 
 ## Supported Frameworks and Versions:
 
-This tool is based on open source technology developed by the PhoneGap team, but it's been specifically modified for use with the Sencha Touch 2.x framework.  It should also work for any hybrid frameworks like jQuery Mobile that store their original HTML5 source in the `www` subdirectory of a PhoneGap or Cordova project.  The server can be run from either a Sencha Touch project folder OR the `phonegap` or `cordova` project folders and will it adapt the file paths dispatched accordingly.
+This tool is based on open source technology developed by the PhoneGap team but it's been modified to support the Sencha Touch 2.x framework.  It should also work for hybrid frameworks like jQuery Mobile that store their original HTML5 source in the `www` subdirectory of a PhoneGap or Cordova project.  The server can be run from either a Sencha Touch project folder OR the `phonegap` or `cordova` project folders and will it adapt the file paths dispatched accordingly.
 
 It should support the following project types:
 
@@ -45,7 +47,7 @@ It should support the following project types:
 - PhoneGap 3.x standalone (not yet tested)
 - Cordova 3.x standalone (not yet tested)
 
-**Testers welcome!  Please log your +ve/-ve test results as issues.**
+**Testers welcome!  Please log your +ve/-ve test results as [issues](https://github.com/tohagan/stlive/issues).**
 
 ## Installation
 
@@ -103,17 +105,17 @@ Make sure you've first completed the **System Setup** in the [Sench Touch Guide]
 
 ## Browser Testing
 
-You don't even need a mobile device to use this app as the server endpoint opened and your app displayed in Chrome or Safari browsers - provided you're not calling PhoneGap plugin APIs.  The browser will similarly autoreload as you edit source code.   
+You don't even need a mobile device to use this app as the server endpoint provided you're not calling PhoneGap plugin APIs. Just open the URL in Chrome or Safari browsers.  The browser will similarly autoreload as you edit source code.   
 
-## External User Testing (Experimental)
+## External User Testing
 
-The  `--localtunnel` server option creates an encrypted socket connect from your server to a randomly generated subdomain of [localtunnel.me](http://localtunnel.me). This will *punch a hole in your firewall* and expose your app server as an external service on the Internet.
+The  `--localtunnel` server option creates an encrypted socket connect from your server to a randomly generated subdomain of [localtunnel.me](http://localtunnel.me). This will *punch a hole in your firewall* and expose your `stlive server` server with an Internet endpoint outside your firewall.  You can use your external URL for browser or device testing.
 
 Use this feature to demo or test development versions of your app to external users or customers or to connect your app server to **device test farms**.
 
-**SECURITY WARNING:** While the node app server is generally reguarded as secure and should in theory only expose content files as read only, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**  Not recommended for production use.
+**SECURITY WARNING:** While the node app server is generally reguarded as secure and should in theory only expose content files as read only, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**  This feature is for testing only. Not recommended for a production service.
 
-### Example 1 - Serve Sencha Code:
+### Example 1 - Create a named URL endpoint outside your firewall:
 
 	$ cd MyApp
 	$ stlive serve --localtunnel
@@ -122,23 +124,24 @@ Use this feature to demo or test development versions of your app to external us
 	listening on 192.168.7.54:3000
 	localtunnel : https://jgwpgspbip.localtunnel.me
 
-On successful connection, the server will report it's URL endpoint as: http://<random>.localtunnel.me
+On successful connection, the server will report it's URL endpoint as: http://<random>.localtunnel.me .  You can now key in this endpoint to the Live Update app on your mobile devices.
 
 ### Example 2 - Serve Compiled Sencha Code:
 
 A `localtunnel` connection can be rather slow so lets compile it first and then serve the compressed JS/CSS files:
 
-    $ cd MyApp
+	$ cd MyApp
 
 Compile Sencha project code into phonegap/www
 
-    $ sencha app build native     
-    
+	$ sencha app build native
+
 Change directory to make server load files from phonegap/www
 
 	$ cd phonegap
 
 Now show an external demo of your app using compressed code:
+
 	$ stlive serve --localtunnel
 
     Starting in d:\Projects\STLIVE-Sandbox\MyApp ...
@@ -174,8 +177,9 @@ Run these command in a Sench Touch, PhoneGap or Cordova project folder:
 ### Run "Live Edit" App Server 
 
 Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
+Runs a live update server in your Sencha Touch or PhoneGap project folder:
 
-  - `$ stlive serve`    - Runs a live update server in your Sencha Touch or PhoneGap project folder
+  - `$ stlive serve [--port number] [--localtunnel]`
 
 ### Info Commands
 
@@ -184,18 +188,20 @@ Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
 
 All default settings can be overridden using corresponding command line options.
 
-## Configuration Options
+## Configuration & Command Line Options
 
-The first time you run this app it will create a **~/.stlive.config** file that defines default app settings. You can edit this file or use corresponding command line options to override any of these defaults. You can also place **.stlive.config** files in current or ancestor directories to configure project specific properties.
-
-The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. For example, you can preconfigure these defaults that new projects will inherit: 
-
+The [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file contains a list of all the options and their default settings. 
+All of these options can be set using corresponding command line options.  The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. 
+For example, you can preconfigure these defaults properties that new projects will inherit: 
 - Your company's reversed domain name (com.mycompany)
 - A set of commonly used PhoneGap plugins
 - Your PhoneGap Build service user name and password
-- Watch directories used by `stlive serve`
-- localtunnel: true  - Permently enables local tunnel 
-- live: true
+- Directories watched by `stlive serve`
+- [Many other options](https://github.com/tohagan/stlive/blob/master/defaults.config).
+
+## Overriding Options
+
+The first time you run this app it will create a **~/.stlive.config** file in your home directory that allows you to override these defaults. This file is a copy of the `defaults.config` that ships with the app. You can also place **.stlive.config** files in current or ancestor directories to configure project or subproject specific properties.
 
 ## Known Issues
 

@@ -1,4 +1,4 @@
-# Install Guide for `Sencha Touch Live`
+## Install Guide for `Sencha Touch Live`
 
 **If you're already developing Sencha Touch native apps then you can probably skip most of this section and just install `Sencha Touch Live`.** 
 
@@ -53,7 +53,7 @@ Use these tools to connect to the web page instance inside your mobile app (runn
   - I've used [Geny Motion](http://www.genymotion.com/) and [Blue Stacks](http://www.bluestacks.com/)
 - [Windows Phone 8 Emulator](http://msdn.microsoft.com/en-us/library/windows/apps/ff402563(v=vs.105).aspx) installs with Visual Studio SDK. 
    
-## Install `PhoneGap`, `Cordova` and finally .... `Sencha Touch Live` !
+### Install `PhoneGap`, `Cordova` and finally .... `Sencha Touch Live` !
 
 If you've already installed either `cordova` or `phonegap`, make sure that their versions match. You can use `npm update` instead of `npm install`.
 

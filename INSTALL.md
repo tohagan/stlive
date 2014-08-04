@@ -55,7 +55,7 @@ Use these tools to connect to the web page instance inside your mobile app (runn
    
 ### Install `PhoneGap`, `Cordova` and finally .... `Sencha Touch Live` !
 
-If you've already installed either `cordova` or `phonegap`, make sure that their versions match. You can use `npm update` instead of `npm install`.
+If you've already installed either `cordova` or `phonegap`, make sure that their versions match. You can use `npm update` instead of `npm install`.  
 
 Mac / Linux:
 
@@ -68,6 +68,19 @@ Windows:
     c:\> npm install -g cordova
     c:\> npm install -g phonegap
     c:\> npm install -g stlive
+
+### Upgrade `Sencha Touch Live`
+
+Mac / Linux:
+
+    $ sudo npm update stlive –g
+
+Windows:
+
+    C:\> npm update stlive –g
+
+There may be new options available that you now add to your existing `~/.stlive.config` file.
+Check [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) online for details.
 
 ## Issues
 

@@ -49,7 +49,7 @@ It should support the following project types:
 
 **Testers welcome!  Please log your +ve/-ve test results as [issues](https://github.com/tohagan/stlive/issues).**
 
-# Getting Started
+## Getting Started
 
 **STOP!** Before proceeding make sure you've first completed the **[Installation Guide](INSTALL.md)**.
 
@@ -59,13 +59,15 @@ If you're aleady developing Sencha Touch natve apps with PhoneGap you probably w
 
     `$ stlive settings`
 
-The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file to `~/.stlive.config`. 
+The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file that ships with the app to your local settings file `~/.stlive.config`. 
 
-You can then edit your settings file `~/.stlive.config` to configure your preferences including:
+You can then edit `~/.stlive.config` to configure your preferences including:
 
 - `touchSdk` - Location of your Sencha Touch SDK (e.g. "~/bin/Sencha/touch-2.3.2")
 - `senchaCmd`: Sencha Command name (e.g. `"sencha-4.0.4.84"` or just `"sencha"`)
-- `appDomain`: Your company's domain name in reverse (e.g. `"com.sencha"`) 
+- `appDomain`: Your company's domain name in reverse (e.g. `"com.sencha"`)
+- `platforms`: Select `android`, `ios` or `wp8` platforms to create your new project.
+- `build.remote`: Set to `true` to enable PhoneGap Build service and update  `build.username` and `build.password`.  This **copied** into a new project and then read from each project.  
 
 **Windows**: You'll find the file at `%USERPROFILE%\.stlive.config`.  You'll need a modern text editor like [Notepad++](http://notepad-plus-plus.org/download) or TextPad. Windows Notepad won't be much use. 
 
@@ -92,7 +94,7 @@ You can then edit your settings file `~/.stlive.config` to configure your prefer
   - You can use this to identify and fix any network or project configuration issues.
   - Finally you should see your new Sencha Touch displayed on your device or emulator.
 
-5. Now edit the view that is displayed:
+**Step 6.**  Now edit the view that is displayed:
    - Open `app/views/Main.js` and change the Welcome message and save the file.
    - You should see the server reload the app and the new Welcome message displayed on the device.
 

@@ -53,17 +53,31 @@ It should support the following project types:
 
 **STOP!** Before proceeding make sure you've first completed the **[Installation Guide](INSTALL.md)**.
 
-If you're aleady developing Sencha Touch natve app with PhoneGap you probably won't have much to install.
+If you're aleady developing Sencha Touch natve apps with PhoneGap you probably won't have much to install.
 
-1. Create and compile a new Sencha Touch / PhoneGap app:
+**Step 1.**  Configure your `stlive` user settings file.
+
+    `$ stlive settings`
+
+The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file to `~/.stlive.config`. 
+
+You can then edit your settings file `~/.stlive.config` to configure your preferences including:
+
+- `touchSdk` - Location of your Sencha Touch SDK (e.g. "~/bin/Sencha/touch-2.3.2")
+- `senchaCmd`: Sencha Command name (e.g. `"sencha-4.0.4.84"` or just `"sencha"`)
+- `appDomain`: Your company's domain name in reverse (e.g. `"com.sencha"`) 
+
+**Windows**: You'll find the file at `%USERPROFILE%\.stlive.config`.  You'll need a modern text editor like [Notepad++](http://notepad-plus-plus.org/download) or TextPad. Windows Notepad won't be much use. 
+
+**Step 2.** Create and compile a new Sencha Touch / PhoneGap app:
 
     `$ stlive create DemoApp`
 	
-2. Deploy the compiled APK file to an Android device or emulator:
+**Step 3.** Deploy the compiled APK file to an Android device or emulator:
 
     `DemoApp/phonegap/platforms/android/ant-build/DemoApp-debug.apk`
 
-3. Run the live update server from your project folder.  The server should then display the **IP Address** and **Port number** it's listened on.
+**Step 4.** Run the live update server from your project folder.  The server should then display the **IP Address** and **Port number** it's listened on.
 
 	`$ cd DemoApp`
 
@@ -71,7 +85,7 @@ If you're aleady developing Sencha Touch natve app with PhoneGap you probably wo
 	listening on 192.168.0.17:3000
 	Hit Control-C to stop` 
 
-4. Start the app on your device and select the Live Update link then key in the **IP Address** and **Port number** to connect to the server.
+**Step 5.** Start the app on your device and select the Live Update link then key in the **IP Address** and **Port number** to connect to the server.
 
   - You should see the server display the sources files the client app is requesting.
   - For Cordova platform files, it will also display the actual file path dispatched (in green).  
@@ -171,19 +185,32 @@ All default settings can be overridden using corresponding command line options.
 
 ## Configuration & Command Line Options
 
-The [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file contains a list of all the options and their default settings. 
-All of these options can be set using corresponding command line options.  The properties are all documented with comments inside this file. You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. 
-For example, you can preconfigure these defaults properties that new projects will inherit:
+- All **configuration options** can be overridded using corresponding **command line options**.
+
+You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. The [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file contains a list of all the options and their default settings.  The properties are all documented with comments inside this file.
+
+The first time you run the app, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file to `~/.stlive.config`. You can then edit this users settings file to configure your preferences.  
+
+Setting & command line properteris for `stlive create` include:
  
 - Your company's reversed domain name (com.mycompany)
-- A set of commonly used PhoneGap plugins
-- Your PhoneGap Build service user name and password
-- Directories watched by `stlive serve`
+- Set of PhoneGap plugins added to new projects.
+- Enable/Disable PhoneGap Build service.
+- PhoneGap build service user name and password
 - [Many other options](https://github.com/tohagan/stlive/blob/master/defaults.config).
+
+Configuration properteris for `stlive create` include:
+
+- Server port number
+- Enable/Disable live edit reloading    
+- Enable/Disable external tunnel to **localtunnel.me** 
+- Set files/directories that trigger reloads for Sencha Touch projects.
+- Set files/directories that trigger reloads for Cordova/PhoneGap projects.
+- Enable/Disable Background SASS Compiler and configure command line and directory.  
 
 ## Overriding Options
 
-The first time you run this app it will create a **~/.stlive.config** file in your home directory that allows you to override these defaults. This file is a copy of the `defaults.config` that ships with the app. You can also place **.stlive.config** files in current or ancestor directories to configure project or subproject specific properties.
+The first time you run this app it will create a **~/.stlive.config** file in your home directory that allows you to override these defaults. This file is a copy of the `defaults.config` that ships with the app.  At this stlive is updated with new versions you may need to maintain the settings in this file.
 
 ## Known Issues
 

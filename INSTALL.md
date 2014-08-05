@@ -19,7 +19,7 @@ You'll need to download and install:
 
 Unlike PhoneGap Developer App, this tool relies on the PhoneGap used by your project and attempts to be more version decoupled so should work with most versions of PhoneGap 3.x and Sencha Touch 2.x . However, to date this app has only been tested with:
  
-- Window 7, OSX Mavericks
+- Window 7 & 8, OSX Mavericks
 - [Sencha Cmd 4.0.4.84](http://www.sencha.com/products/sencha-cmd/download) 
 - [Sencha Touch 2.3.2](http://www.sencha.com/products/touch/download/) 
 - [PhoneGap 3.5.0](http://phonegap.com/install/)

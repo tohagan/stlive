@@ -28,9 +28,9 @@ Please [log issues](https://github.com/tohagan/stlive/issues) to record other co
 
 ### Compiling your native app
 
-The Either sign up for an account to compile your mobile apps at [PhoneGap Build Service](https://build.phonegap.com/apps). You can build one app for free or 25 app if you pay.  If you already have Adobe Create Cloud then you can use the same account. 
+You can either sign up for an account at [PhoneGap Build Service](https://build.phonegap.com/apps) to compile your apps online OR use platform SDK tools to compile them on your computer.  You can configure your service account name and password in your `.stlive.config` files to copy them into new projects OR you can configure them in the `phonegap.local.properties` file.
 
-If you **don't** plan to use this service you'll also need to install platform SDK compilers:
+If you **don't** plan to use this service you'll also need to install the platform SDKs that include compilers and emulators or simulators.
 
 - **Android**: [Eclipse / Android Development Kit (ADT)](http://developer.android.com/sdk/index.html)
  - Ensure that `$JAVA_HOME`, `$ANT_HOME`, and `$ANDROID_HOME` environment variables are set.  

@@ -15,7 +15,7 @@ Using this tool you can update any Javascript, CSS or HTML source file on your d
 
 This means you can place any number of devices/emulators in front of you and instantly see the effect of your last code change one or more Android, iOS and WP8 devices!  You can even serve up your source code from your local computer onto a cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices.  
 
-You can also keep your remote debuggers connected while each update occurs so you save more time by not having to restart your remote debuggers.  Since the Javascipt source code is not minified, it's also much easier to debug. You can also elect to load the original unminified Sench Touch framework files onto the device making debugging of framework code easier.
+You can also keep your remote debuggers connected while each update occurs so you save more time by not having to restart your remote debuggers.  Since the Javascript source code is not minified, it's also much easier to debug. You can also elect to load the original unminified Sencha Touch framework files onto the device making debugging of framework code easier.
 
 ### The Problem
 
@@ -53,7 +53,7 @@ It should support the following project types:
 
 **STOP!** Before proceeding make sure you've first completed the **[Installation Guide](INSTALL.md)**.
 
-If you're aleady developing Sencha Touch natve apps with PhoneGap you probably won't have much to install.
+If you're already developing Sencha Touch native apps with PhoneGap you probably won't have much to install.
 
 **Step 1.**  Configure your `stlive` user settings file.
 
@@ -110,7 +110,7 @@ The  `localtunnel` option creates an encrypted socket connect from your `stlive`
  
 You can now use this external URL for browser or device testing, or to demo or test development versions of your app to friends, testers or customers. You can even connect your app server to cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices or use it when you visit an [Open Device Lab](http://lab-up.org). 
 
-**SECURITY WARNING:** While the node app server is generally reguarded as secure and should in theory only expose content files as read only, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**  This feature is for testing only. Not recommended for a production service.
+**SECURITY WARNING:** While the node app server is generally regarded as secure and should in theory only expose content files as read only, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**  This feature is for testing only. Not recommended for a production service.
 
 ### Example 1 - Create a named URL endpoint outside your firewall:
 
@@ -125,7 +125,7 @@ On successful connection, the server will report it's URL endpoint as: http://**
 
 ### Example 2 - Serve Compiled Sencha Code:
 
-A `localtunnel` connection can be rather slow so lets compile it first and then serve the compressed JS/CSS files:
+A `localtunnel` connection can be rather slow so let's compile it first and then serve the compressed JS/CSS files:
 
 	$ cd MyApp
 
@@ -149,9 +149,9 @@ Now show an external demo of your app using compressed code:
 
 ### Create new Sencha Touch app with "Live Edit" 
 
-Create a new Sencha Touch 2.x + PhoneGap 3.x app with an embedded "live edit" client. 
+Create a new Sencha Touch 2.x + PhoneGap 3.x app with an embedded "live edit" client.
 
-  - `$ stlive create [appDomain] [appName]`
+    $ stlive create [appDomain] [appName]
 
 **TIP**: The domain or app name can be specified or use a default from your `.stlive.config` files.  If you create all your Sencha projects under a common parent folder you can create a `.stlive.config` in that parent folder and setup common defaults like `appDomain` for all your projects.
  
@@ -159,13 +159,13 @@ Create a new Sencha Touch 2.x + PhoneGap 3.x app with an embedded "live edit" cl
 
 Same as `sencha app build native` but it uses the version of Sencha Command configured in `.stlive.config` in your home directory or current/ancestor directories of your project.
 
-  - `$ stlive build`
+    $ stlive build
   
-**TIP**: Commit a `.stlive.config` file as part of your project so you can auto select the right verson of Sencha Command and Sench Touch.  A future version may support settings environment variables prior to running Sencha Command so that the build process (and all the related build tools) can be customised on a per project basis. This would make it fast and easy to switch build parameters and tools just by changing projects directory and ensure that it's all version controlled.
+**TIP**: Commit a `.stlive.config` file as part of your project so you can auto select the right version of Sencha Command and Sencha Touch.  A future version may support settings environment variables prior to running Sencha Command so that the build process (and all the related build tools) can be customised on a per project basis. This would make it fast and easy to switch build parameters and tools just by changing projects directory and ensure that it's all version controlled.
 
 ### Instrumenting existing mobile apps for "Live Edit"
 
-Run these command in a Sench Touch, PhoneGap or Cordova project folder:
+Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
 
   - `$ stlive add`    - Add a live client to an existing Sencha Touch or PhoneGap project.
   - `$ stlive remove` - Removes the live client from a project (pre app store or production MDM deployment).
@@ -176,7 +176,7 @@ Run these command in a Sench Touch, PhoneGap or Cordova project folder:
 Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
 Runs a live update server in your Sencha Touch or PhoneGap project folder:
 
-  - `$ stlive serve [--port number] [--localtunnel]`
+    $ stlive serve [--port number] [--localtunnel]
 
 ### Info Commands
 
@@ -189,9 +189,9 @@ Runs a live update server in your Sencha Touch or PhoneGap project folder:
 
 You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. The [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file contains a list of all the options and their default settings.  The properties are all documented with comments inside this file.
 
-The first time you run the app, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file to `~/.stlive.config`. You can then edit this users settings file to configure your preferences.  
+The first time you run the app, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file to `~/.stlive.config`. You can then edit this user settings file to configure your preferences.  
 
-Setting & command line properteris for `stlive create` include:
+Setting & command line properties for `stlive create` include:
  
 - Your company's reversed domain name (com.mycompany)
 - Set of PhoneGap plugins added to new projects.
@@ -199,7 +199,7 @@ Setting & command line properteris for `stlive create` include:
 - PhoneGap build service user name and password
 - [Many other options](https://github.com/tohagan/stlive/blob/master/defaults.config).
 
-Configuration properteris for `stlive create` include:
+Configuration properties for `stlive create` include:
 
 - Server port number
 - Enable/Disable live edit reloading    
@@ -216,11 +216,9 @@ The first time you run this app it will create a **~/.stlive.config** file in yo
 
 - Navigating back to the start page and then re-selecting the Live Update link often fails to restart the Live Update client.  **Workaround**: Stop and restart the mobile app.  See 
 
-### Ackowledgements
+### Acknowledgements
 
-A huge **Thank You** to the **PhoneGap** project team and **Abobe Inc.** who sponsored them. 
-
-Without their having open sourced the **[PhoneGap Developer App](http://app.phonegap.com/)** this app would not exist.
+A huge **Thank You** to the **PhoneGap** project team and **Abobe Inc.** who sponsored them; without their having open sourced the **[PhoneGap Developer App](http://app.phonegap.com/)** this app would not exist.
 
 ### Licence
 

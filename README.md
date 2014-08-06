@@ -167,9 +167,9 @@ Same as `sencha app build native` but it uses the version of Sencha Command conf
 
 Run these command in a Sench Touch, PhoneGap or Cordova project folder:
 
-  - `$ stlive live add`    - Add a live client to an existing Sencha Touch or PhoneGap project.
-  - `$ stlive live remove` - Removes the live client from a project (pre app store or production MDM deployment).
-  - `$ stlive live update` - Updates project live client to latest version after upgrading `stlive`.
+  - `$ stlive add`    - Add a live client to an existing Sencha Touch or PhoneGap project.
+  - `$ stlive remove` - Removes the live client from a project (pre app store or production MDM deployment).
+  - `$ stlive update` - Updates project live client to latest version after upgrading `stlive`.
  
 ### Run "Live Edit" App Server 
 

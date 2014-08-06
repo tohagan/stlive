@@ -183,8 +183,6 @@ Runs a live update server in your Sencha Touch or PhoneGap project folder:
   - `$ stlive version`  - Displays app version
   - `$ stlive settings` - Displays configured settings.  You can update these in `~/.stlive.config`
 
-All default settings can be overridden using corresponding command line options.
-
 ## Configuration & Command Line Options
 
 - All **configuration options** can be overridded using corresponding **command line options**.
@@ -216,7 +214,7 @@ The first time you run this app it will create a **~/.stlive.config** file in yo
 
 ## Known Issues
 
-- Navigating back to the start page and then re-selecting the Live Update link often fails to restart the Live Update client.  **Workaround**: Stop and restart the mobile app.
+- Navigating back to the start page and then re-selecting the Live Update link often fails to restart the Live Update client.  **Workaround**: Stop and restart the mobile app.  See 
 
 ### Ackowledgements
 

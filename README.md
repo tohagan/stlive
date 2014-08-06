@@ -57,7 +57,7 @@ If you're aleady developing Sencha Touch natve apps with PhoneGap you probably w
 
 **Step 1.**  Configure your `stlive` user settings file.
 
-    `$ stlive settings`
+    $ stlive settings
 
 The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file that ships with the app to your local settings file `~/.stlive.config`. 
 
@@ -73,19 +73,19 @@ You can then edit `~/.stlive.config` to configure your preferences including:
 
 **Step 2.** Create and compile a new Sencha Touch / PhoneGap app:
 
-    `$ stlive create DemoApp`
+    $ stlive create DemoApp
 	
 **Step 3.** Deploy the compiled APK file to an Android device or emulator:
 
-    `DemoApp/phonegap/platforms/android/ant-build/DemoApp-debug.apk`
+    DemoApp/phonegap/platforms/android/ant-build/DemoApp-debug.apk
 
 **Step 4.** Run the live update server from your project folder.  The server should then display the **IP Address** and **Port number** it's listened on.
 
-	`$ cd DemoApp`
+	$ cd DemoApp
 
-	`$ stlive serve
+	$ stlive serve
 	listening on 192.168.0.17:3000
-	Hit Control-C to stop` 
+	Hit Control-C to stop
 
 **Step 5.** Start the app on your device and select the Live Update link then key in the **IP Address** and **Port number** to connect to the server.
 
@@ -167,9 +167,9 @@ Same as `sencha app build native` but it uses the version of Sencha Command conf
 
 Run these command in a Sench Touch, PhoneGap or Cordova project folder:
 
-  - `$ stlive live add`    - Add a live client to an existing Sencha Touch or PhoneGap project.
-  - `$ stlive live remove` - Removes the live client from a project (pre app store or production MDM deployment).
-  - `$ stlive live update` - Updates project live client to latest version after upgrading `stlive`.
+  - `$ stlive add`    - Add a live client to an existing Sencha Touch or PhoneGap project.
+  - `$ stlive remove` - Removes the live client from a project (pre app store or production MDM deployment).
+  - `$ stlive update` - Updates project live client to latest version after upgrading `stlive`.
  
 ### Run "Live Edit" App Server 
 

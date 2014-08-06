@@ -12,32 +12,35 @@
     "bin": {
         "stlive": "./cli.js"
     },
+    "scripts": {
+        "test": "jasmine-node --color spec"
+    },
     "author": {
         "name": "Tony O'Hagan",
         "email": "tony@ohagan.name"
     },
-	"keywords": [
-	    "phonegap",
-		"cordova",
+    "keywords": [
+        "phonegap",
+        "cordova",
         "sencha",
         "sencha touch",
-		"touch",
+        "touch",
         "mobile",
-		"android",
-		"ios",
-		"blackberry",
-		"wp8",
-		"windows phone",
+        "android",
+        "ios",
+        "blackberry",
+        "wp8",
+        "windows phone",
         "apps",
         "live",
         "live edit",
-		"sync",
-		"development",
-		"deploy",
-		"test",
-		"testing",
-		"demo",
-		"localtunnel"
+        "sync",
+        "development",
+        "deploy",
+        "test",
+        "testing",
+        "demo",
+        "localtunnel"
     ],
     "engines": {
         "node": ">=0.10.0"

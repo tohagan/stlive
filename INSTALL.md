@@ -61,6 +61,7 @@ Mac / Linux:
 
     $ sudo npm install -g cordova
     $ sudo npm install -g phonegap
+    $ sudo npm install -g ios-sim   # Mac only - for iOS Simulator
     $ sudo npm install -g stlive
 
 Windows:

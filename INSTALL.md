@@ -24,7 +24,7 @@ Unlike PhoneGap Developer App, this tool relies on the PhoneGap used by your pro
 - [Sencha Touch 2.3.2](http://www.sencha.com/products/touch/download/) 
 - [PhoneGap 3.5.0](http://phonegap.com/install/)
 
-Please [log issues](https://github.com/tohagan/stlive/issues) to record configurations that you have tested (+ve and -ve results).
+Please [log issues](https://github.com/tohagan/stlive/issues) to record other configurations that you have tested (+ve and -ve results) so we can document your results here. Linux anyone? Thanks :) .
 
 ### Compiling your native app
 
@@ -42,7 +42,7 @@ If you **don't** plan to use this service you'll also need to install platform S
 Use these tools to connect to the web page instance inside your mobile app (running on an emulator or USB connected device).  If you're debugging the native plugin code (C#, Java, Objective-C) - you'll need to use SDK debuggers.
 
 - **iOS**: [Safari Web Inspector](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
-- **Andriod 4.4+**: [Chrome Debugger](https://developer.chrome.com/devtools/docs/remote-debugging) 
+- **Android 4.4+**: [Chrome Debugger](https://developer.chrome.com/devtools/docs/remote-debugging) 
 - **Android < 4.4**: [Weinre](http://people.apache.org/~pmuellr/weinre)
 
 ### Device Emulators
@@ -62,13 +62,13 @@ Mac / Linux:
     $ sudo npm install -g cordova
     $ sudo npm install -g phonegap
     $ sudo npm install -g ios-sim   # Mac only - for iOS Simulator
-    $ sudo npm install -g stlive
+    $ sudo npm install -g stlive    # <<<<  THIS APP !
 
 Windows:
 
     c:\> npm install -g cordova
     c:\> npm install -g phonegap
-    c:\> npm install -g stlive
+    c:\> npm install -g stlive      # <<<<  THIS APP !
 
 ### Upgrade `Sencha Touch Live`
 

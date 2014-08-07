@@ -49,11 +49,15 @@ It should support the following project types:
 
 **Testers welcome!  Please log your +ve/-ve test results as [issues](https://github.com/tohagan/stlive/issues).**
 
+## Installation
+
+If you're already developing Sencha Touch native apps with PhoneGap you probably won't have much to install.  Most existing Sencha Touch / PhoneGap developers will only need to run ... 
+
+    $ [sudo] npm install -g stlive 
+
+... but you might want to checkout the **[Installation Guide](INSTALL.md)** to make sure you've got everything - particularly before logging an [issue](https://github.com/tohagan/stlive/issues).
+
 ## Getting Started
-
-**STOP!** Before proceeding make sure you've first completed the **[Installation Guide](INSTALL.md)**.
-
-If you're already developing Sencha Touch native apps with PhoneGap you probably won't have much to install.
 
 **Step 1.**  Configure your `stlive` user settings file.
 

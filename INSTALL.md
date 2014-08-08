@@ -37,22 +37,22 @@ If you **don't** plan to use this service you'll also need to install the platfo
 - **iOS**: [XCode for OSX](https://developer.apple.com/xcode/downloads/)
 - **WP8**: [Windows Phone 8 SDK](http://dev.windows.com/en-us/develop/download-phone-sdk)
 
-### Javascipt Debugging Tools:
+### Device Simulators and Emulators
 
-Use these tools to connect to the web page instance inside your mobile app (running on an emulator or USB connected device).  If you're debugging the native plugin code (C#, Java, Objective-C) - you'll need to use SDK debuggers.
+- **iOS**: iOS Simulator installs with XCode SDK and supports iPad/iPhone/iPod.
+- **Android**:
+  - The Android emulator that ships with the SDK is a bit of a time waster so you might want something thats faster and simpler to use.
+  - I've like [Geny Motion](http://www.genymotion.com/) and I've also used [Blue Stacks](http://www.bluestacks.com/). There are more out there I've not yet tested.
+- **WP8**: [Windows Phone 8 Emulator](http://msdn.microsoft.com/en-us/library/windows/apps/ff402563(v=vs.105).aspx) installs with Visual Studio SDK. 
+   
+### Javascript Remote Debugging
+
+Use these tools to connect to the web page instance inside your mobile app (running on an emulator or USB connected device).  If you're debugging the native plugin code (C#, Java, Objective-C) - you'll need to use SDK debuggers.  Make sure you've following the instructions below to configure your hardware devices for **developement mode**.
 
 - **iOS**: [Safari Web Inspector](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
-- **Android 4.4+**: [Chrome Debugger](https://developer.chrome.com/devtools/docs/remote-debugging) 
+- **Android 4.4+**: [Chrome Debugger](https://developer.chrome.com/devtools/docs/remote-debugging). Check you have **Chrome v32** or later installed on your desktop development computer.  
 - **Android < 4.4**: [Weinre](http://people.apache.org/~pmuellr/weinre)
 
-### Device Emulators
-
-- **iOS**: iPad/iPhone/iPod emulator installs with XCode SDK
-- **Android**:
-  - Google's Android SDK ships with an Android emulator but it's a bit broken so you might want something better.
-  - I've used [Geny Motion](http://www.genymotion.com/) and [Blue Stacks](http://www.bluestacks.com/)
-- [Windows Phone 8 Emulator](http://msdn.microsoft.com/en-us/library/windows/apps/ff402563(v=vs.105).aspx) installs with Visual Studio SDK. 
-   
 ### Install `PhoneGap`, `Cordova` and finally .... `Sencha Touch Live` !
 
 If you've already installed either `cordova` or `phonegap`, make sure that their versions match. You can use `npm update` instead of `npm install`.  

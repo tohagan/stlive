@@ -61,29 +61,33 @@ If you're already developing Sencha Touch native apps with PhoneGap you probably
 
 **Step 1.**  Configure your `stlive` user settings file.
 
+Run ...
+
     $ stlive settings
 
-The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file that ships with the app to your local settings file `~/.stlive.config`. 
+The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file that ships with the app to your local settings file `~/.stlive.config`.  `stlive` merges settings from `.stlive.config` files it finds in your current, ancestor and home directories. This allows you to configure settings for a group of projects by placing a copy in a parent folder contains the related project as subfolders. You can then override and version control settings for a specific project by adding an `.stlive.config` file to the project subfolder.
 
-You can then edit `~/.stlive.config` to configure your preferences including:
+`.stlive.config` files configure preferences including:
 
-- `touchSdk` - Location of your Sencha Touch SDK (e.g. "~/bin/Sencha/touch-2.3.2")
-- `senchaCmd`: Sencha Command name (e.g. `"sencha-4.0.4.84"` or just `"sencha"`)
-- `appDomain`: Your company's domain name in reverse (e.g. `"com.sencha"`)
-- `platforms`: Select `android`, `ios` or `wp8` platforms to create your new project.
-- `build.remote`: Set to `true` to enable PhoneGap Build service and update  `build.username` and `build.password`.  This **copied** into a new project and then read from each project.  
+- `touchSdk` - Location of your Sencha Touch SDK (e.g. "~/bin/Sencha/touch-2.3.2").
+- `senchaCmd`: Version specific Sencha Command (e.g. `"sencha-4.0.4.84"` or just `"sencha"` which will get the last installed)
+- `appDomain`: Your company's domain name in reverse (e.g. `"com.sencha"`).
+- `platforms`: Select `android`, `ios` or `wp8` platforms to add to new projects.
+- `build.remote`: Set to `true` to enable PhoneGap Build service and update  `build.username` and `build.password`.  These settings are **copied** into new projects and then read from each project.  
 
-**Windows**: You'll find the file at `%USERPROFILE%\.stlive.config`.  You'll need a modern text editor like [Notepad++](http://notepad-plus-plus.org/download) or TextPad. Windows Notepad won't be much use. 
+**Windows**: You'll find the home file at `%USERPROFILE%\.stlive.config`.  You'll need a modern text editor like  [Brackets](http://brackets.io/), [Notepad++](http://notepad-plus-plus.org/download) or [TextPad](https://www.textpad.com/). Windows Notepad won't be much use. 
 
-**Step 2.** Create and compile a new Sencha Touch / PhoneGap app:
+**Step 2.** Start your simulators / emulators / devices 
 
-    $ stlive create DemoApp
-	
-**Step 3.** Deploy the compiled APK file to an Android device or emulator:
+*But hang on ... We don't even have an app yet!*  ... Trust me ... You soon will.
 
-    DemoApp/phonegap/platforms/android/ant-build/DemoApp-debug.apk
+Refer to **[Installation Guide](INSTALL.md)** for both **Device Simulators and Emulators** and **Javascript Remote Debugging**. 
 
-**Step 4.** Run the live update server from your project folder.  The server should then display the **IP Address** and **Port number** it's listened on.
+**Step 3.** Create, Compile, Deploy and Run a new live edittable Sencha Touch / PhoneGap app:
+
+    $ stlive create --run DemoApp
+
+**Step 4.** Now run a live update server from your new project folder.  The server should then display the **IP Address** and **Port number** it's listened on.
 
 	$ cd DemoApp
 
@@ -91,7 +95,7 @@ You can then edit `~/.stlive.config` to configure your preferences including:
 	listening on 192.168.0.17:3000
 	Hit Control-C to stop
 
-**Step 5.** Start the app on your device and select the Live Update link then key in the **IP Address** and **Port number** to connect to the server.
+**Step 5.** Make sure the app has started on your device and select the **[Live Update]()** link then key in the **IP Address** and **Port number** to connect to the server.
 
   - You should see the server display the sources files the client app is requesting.
   - For Cordova platform files, it will also display the actual file path dispatched (in green).  
@@ -99,22 +103,33 @@ You can then edit `~/.stlive.config` to configure your preferences including:
   - Finally you should see your new Sencha Touch displayed on your device or emulator.
 
 **Step 6.**  Now edit the view that is displayed:
+
    - Open `app/views/Main.js` and change the Welcome message and save the file.
    - You should see the server reload the app and the new Welcome message displayed on the device.
+     - Shows paths loaded for platform specific PhoneGap files (green) 
+     - Highlights your Sencha Touch app code (yellow)
 
-### Live Edit using a Desktop Browser 
+**Step 7.** Connect to the app using a remote debugger
 
-You don't even need a mobile device to use `stlive`. Just open the URL in Chrome or Safari browsers.  *The browser will similarly autoreload as you edit source code.*   Your app should work provided you're not calling any PhoneGap plugin APIs directly. Sencha Touch provides APIs that can emulate some of the PhoneGap APIs in your desktop PC browser.  
+- **iOS**: Follow [these instructions](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
+- **Android 4.4+**: Follow [these instructions](https://developer.chrome.com/devtools/docs/remote-debugging). Needs  **Chrome v32** or later on desktop computer.  
 
-### Live Internet Testing  (Cool Feature!)
 
-The  `localtunnel` option creates an encrypted socket connect from your `stlive` server to a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**. This will *punch a hole in your firewall* and expose your `stlive server` server with a randomly generated domain name accessible on the Internet.
+### Live Edit using a Desktop or Mobile Browser
+
+You don't even need a mobile device to use `stlive`. Just open the URL in Chrome or Safari mobile or desktop browsers.  *The browser will similarly autoreload as you edit source code.*   
+
+**NOTE**: Your app should work provided you're not calling any PhoneGap plugin APIs directly. Sencha Touch provides wrapper classes that can emulate some of the PhoneGap APIs when your app is run in a desktop browser (See devices in [Sencha Touch API](http://docs.sencha.com/touch/2.3.2). Example: [Ext.device.FileSystem](http://docs.sencha.com/touch/2.3.2/source/FileSystem.html#Ext-device-FileSystem).  
+
+### Live Internet Demo or Testing  (Cool Feature!)
+
+The  `localtunnel` option creates an encrypted socket connect from your `stlive` server to a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**. This will *punch a hole in your firewall* and expose your `stlive server` server with a randomly generated domain name that is accessible on the Internet if you know the random path. 
 
 	$ stlive serve --localtunnel
  
-You can now use this external URL for browser or device testing, or to demo or test development versions of your app to friends, testers or customers. You can even connect your app server to cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices or use it when you visit an [Open Device Lab](http://lab-up.org). 
+You can now use this external URL for browser or device testing, or to demo or test development versions of your app to friends, testers or customers. You can even connect your app server to cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices or use it when you visit an [Open Device Lab](http://lab-up.org).  
 
-**SECURITY WARNING:** While the node app server is generally regarded as secure and should in theory only expose content files as read only, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this feature at your own risk!**  This feature is for testing only. Not recommended for a production service.
+**SECURITY WARNING:** While the node app server is generally regarded as secure and should in theory only expose content files as read only, and the random domain name provides some additional protection, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this at your own risk!**  This feature is for brief demoes and testing only. Not recommended for a production service.
 
 ### Example 1 - Create a named URL endpoint outside your firewall:
 
@@ -167,6 +182,12 @@ Same as `sencha app build native` but it uses the version of Sencha Command conf
   
 **TIP**: Commit a `.stlive.config` file as part of your project so you can auto select the right version of Sencha Command and Sencha Touch.  A future version may support settings environment variables prior to running Sencha Command so that the build process (and all the related build tools) can be customised on a per project basis. This would make it fast and easy to switch build parameters and tools just by changing projects directory and ensure that it's all version controlled.
 
+### Compile and Deploy PhoneGap app
+
+These commands will not recompile your sencha code, just the PhoneGap code. But it will redeploy to the device which can be quicker than doing this manually:
+
+  - `$ stlive run [platform ...]` - Recompiles and deploys your app to the device. 
+
 ### Instrumenting existing mobile apps for "Live Edit"
 
 Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
@@ -218,7 +239,7 @@ The first time you run this app it will create a **~/.stlive.config** file in yo
 
 ## Known Issues
 
-- Navigating back to the start page and then re-selecting the Live Update link often fails to restart the Live Update client.  **Workaround**: Stop and restart the mobile app.  See 
+- Navigating back to the start page and then re-selecting the Live Update link often fails to restart the Live Update client.  **Workaround**: Stop and restart the mobile app or redeploy it using `stlive run`
 
 ### Acknowledgements
 

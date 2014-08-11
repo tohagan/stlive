@@ -47,7 +47,7 @@ If you **don't** plan to use this service you'll also need to install the platfo
    
 ### Javascript Remote Debugging
 
-Use these tools to connect to the web page instance inside your mobile app (running on an emulator or USB connected device).  If you're debugging the native plugin code (C#, Java, Objective-C) - you'll need to use SDK debuggers.  Make sure you've following the instructions below to configure your hardware devices for **developement mode**.
+Use these tools to connect to UIWebView instances inside your mobile apps running on an simulator/emulator or USB connected devices.  If you're debugging the native plugin code (Java, Objective-C, C#) - you'll need to use SDK debuggers.  Make sure you've followed the instructions below to configure your hardware devices for **developement mode**.
 
 - **iOS**: [Safari Web Inspector](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
 - **Android 4.4+**: [Chrome Debugger](https://developer.chrome.com/devtools/docs/remote-debugging). Check you have **Chrome v32** or later installed on your desktop development computer.  

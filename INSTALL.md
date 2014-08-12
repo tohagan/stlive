@@ -83,6 +83,55 @@ Windows:
 There may be new options available that you now add to your existing `~/.stlive.config` file.
 run `stlive settings diff` to compare [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) with your home settings file `~/.stlive.config` or a local settings file.
 
+Follow the **Getting Started** guide in **[README](README.md)** file to test your install. 
+
+### Installing SASS & Compass compiler
+
+The SASS language is a CSS style sheet pre-processor that is used by Sencha Touch to improve the power and flexability of defining CSS styles.  In Sencha Touch projects, files in `resources/sass/*.scss` are compiled into `resources/css/app.css`.  The SASS compass compiler can be run in **watch** mode so it detects changes to your `*.scss` files and recompiles them. The `stlive serve` server can be configured to auto start the SASS compiler so that as you make changes to `*.scss` files they are auto converted to `*.css` files that in turn trigger a reload of the app.
+
+The SASS Compiler is developed in Ruby so you must first ensure that that you have installed Ruby 2.x.  Ruby now ships with OSX but you may need to upgrade it so check the version using `ruby --version`.
+
+**Mac / Linux:**
+
+    $ sudo gem install sass 
+    $ sudo gem install compass
+    $ whereis compass    # Identify the install path for Compass
+    /usr/bin/compass     # typically install here
+
+Ensure these properties are in your `~/.stlive.config` file
+
+    "sass": false,   // true if you wish to always auto start SASS compiler with stlive server
+    "bgtasks": {
+        "sass": {
+            "name": "Compass SASS Compiler",
+            "cmd": "/usr/bin/compass watch -c config.rb app.scss",   <<<< CHECK compass path
+            "dir": "resources/sass",
+            "success": "Compass is polling"   // Output when compiler starts ok
+        }
+    },
+
+- Follow the **Getting Started** guide in **[README](README.md)** file to test your install. 
+
+
+**Windows:**
+
+    C:\> gem install sass
+    C:\> gem install compass
+
+Ensure these properties are in your `~/.stlive.config` file
+
+    "sass": false,   // true if you wish to always auto start SASS compiler with stlive server
+    "bgtasks": {
+        "sass": {
+            "name": "Compass SASS Compiler",
+            "cmd": "C:/Ruby200-x64/bin/compass.bat watch -c config.rb app.scss",   // <<<< CHECK compass path
+            "dir": "resources/sass",
+            "success": "Compass is polling"   // Output when compiler starts ok
+        }
+    },
+
+- Follow the **Getting Started** guide in **[README](README.md)** file to test your install.
+
 ## Issues
 
 ### Socket.io (hopefully fixed!)

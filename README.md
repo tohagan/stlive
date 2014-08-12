@@ -114,19 +114,41 @@ Refer to **[Installation Guide](INSTALL.md)** for both **Device Simulators and E
 - **iOS**: Follow [these instructions](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
 - **Android 4.4+**: Follow [these instructions](https://developer.chrome.com/devtools/docs/remote-debugging). Needs  **Chrome v32** or later on desktop computer.  
 
-**Step 8.** Add Live SASS styling using the SASS Compass Compiler
+## Live Edit SASS/CSS styling
 
-Install Ruby and compass compiler as per **[Installation Guide](INSTALL.md)**. 
+**Step 1.** Install Ruby, SASS and Compass compiler as per **[Installation Guide](INSTALL.md)** instructions. 
 
-Configure the SASS compiler in your `.stlive.config` setting file. You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
+**Step 2.** Configure the SASS compiler in your `.stlive.config` setting file. You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
 
-Test the SASS compiler starts ... 
+Test the SASS compiler starts and resolve any configuration issues ... 
 
 	$ stlive sass
     [sass] Compass SASS Compiler starting
-    [sass] >>> Compass is polling for changes.
+    [sass] >>> Compass is polling for changes.  Hit Control-C to stop
 
-### Live Edit using a Desktop or Mobile Browser
+Use `Ctrl-C` to Stop the SASS compiler.
+
+**Step 3.** Now start the SASS compiler as part of the ST Live server ...
+
+	$ stlive serve --sass
+    [sass] Compass SASS Compiler starting
+    [sass] >>> Compass is polling for changes.
+	listening on 192.168.0.17:3000
+
+ 	Hit Control-C to stop
+
+
+`Ctrl-C` will now stop both the ST Live server and the SASS Compiler.
+
+**Step 4.** Start your emulator or device and load your mobile app and begin Live Update editing.
+
+**Step 5.** Change the base color theme for your app by adding this line to the **top** of `resources/sass/app.scss` and save the file.  
+
+    $base_color: #186FA5;
+ 
+You should see the compass compiler detect the change and recompile your file and then the ST Live server detect the change to the `resources/css/app.css` file and reload your app with the new theme color. 
+
+## Live Edit using a Desktop or Mobile Browser
 
 You don't even need a mobile device to use `stlive`. Just open the URL in Chrome or Safari mobile or desktop browsers.  *The browser will similarly autoreload as you edit source code.*   
 

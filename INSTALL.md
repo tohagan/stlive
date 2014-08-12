@@ -74,14 +74,14 @@ Windows:
 
 Mac / Linux:
 
-    $ sudo npm update stlive –g
+    $ sudo npm update -g stlive 
 
 Windows:
 
-    C:\> npm update stlive –g
+    C:\> npm update -g stlive 
 
 There may be new options available that you now add to your existing `~/.stlive.config` file.
-Check [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) online for details.
+run `stlive settings diff` to compare [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) with your home settings file `~/.stlive.config` or a local settings file.
 
 ## Issues
 

@@ -63,7 +63,7 @@ If you're already developing Sencha Touch native apps with PhoneGap you probably
 
 Run ...
 
-    $ stlive settings
+    $ stlive settings show
 
 The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file that ships with the app to your local settings file `~/.stlive.config`.  `stlive` merges settings from `.stlive.config` files it finds in your current, ancestor and home directories. This allows you to configure settings for a group of projects by placing a copy in a parent folder contains the related project as subfolders. You can then override and version control settings for a specific project by adding an `.stlive.config` file to the project subfolder.
 
@@ -114,6 +114,17 @@ Refer to **[Installation Guide](INSTALL.md)** for both **Device Simulators and E
 - **iOS**: Follow [these instructions](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
 - **Android 4.4+**: Follow [these instructions](https://developer.chrome.com/devtools/docs/remote-debugging). Needs  **Chrome v32** or later on desktop computer.  
 
+**Step 8.** Add Live SASS styling using the SASS Compass Compiler
+
+Install Ruby and compass compiler as per **[Installation Guide](INSTALL.md)**. 
+
+Configure the SASS compiler in your `.stlive.config` setting file. You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
+
+Test the SASS compiler starts ... 
+
+	$ stlive sass
+    [sass] Compass SASS Compiler starting
+    [sass] >>> Compass is polling for changes.
 
 ### Live Edit using a Desktop or Mobile Browser
 
@@ -123,7 +134,7 @@ You don't even need a mobile device to use `stlive`. Just open the URL in Chrome
 
 ### Live Internet Demo or Testing  (Cool Feature!)
 
-The  `localtunnel` option creates an encrypted socket connect from your `stlive` server to a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**. This will *punch a hole in your firewall* and expose your `stlive server` server with a randomly generated domain name that is accessible on the Internet if you know the random path. 
+The  `--localtunnel` option creates an encrypted socket connect from your `stlive` server to a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**. This will *punch a hole in your firewall* and expose your `stlive server` server with a randomly generated domain name that is accessible on the Internet if you know the random path. 
 
 	$ stlive serve --localtunnel
  
@@ -196,17 +207,52 @@ Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
   - `$ stlive remove` - Removes the live client from a project (pre app store or production MDM deployment).
   - `$ stlive update` - Updates project live client to latest version after upgrading `stlive`.
  
-### Run "Live Edit" App Server 
+### Run SASS Compass Compiler
+
+    $ stlive sass 
+
+Starts the SASS Compass compiler configured in your `.stlive.config` settings file.
+
+**NOTE**: You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
+
+Example `~/.stlive.config` **Windows** configuration:
+
+    ...
+    // Set this to true to auto start SASS Compiler with 'stlive serve' command
+    "sass": false,
+
+    "bgtasks": {
+        "sass": {
+            "name": "Compass SASS Compiler",
+            "cmd": "C:/Ruby200-x64/bin/compass.bat watch -c config.rb app.scss",
+            "dir": "resources/sass",
+            // Output when compiler starts ok
+            "success": "Compass is polling"
+        }
+    },
+    ...
+
+### Run "Live Edit" App Server
 
 Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
 Runs a live update server in your Sencha Touch or PhoneGap project folder:
 
-    $ stlive serve [--port number] [--localtunnel]
+    $ stlive serve [--port number] [--localtunnel] [--sass]
+
+- `--port number` - Changes default server port number
+- `--localtunnel` - Connects your `stlive` server to a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**
+- `--sass` - Starts a SASS Compass compiler with the Live Edit server.  
+  - Your Sench Touch SASS files in `resources/sass/*.scss` are now also live editable.
+  - set `"sass": true` in your settings file to always auto start/stop this compiler as a background task.
+
+All these options can be preconfigured in a settings file.
 
 ### Info Commands
 
-  - `$ stlive version`  - Displays app version
-  - `$ stlive settings` - Displays configured settings.  You can update these in `~/.stlive.config`
+  - `$ stlive --version`  - Displays app version
+
+  - `$ stlive settings show` - Shows settings merged from `.stlive.config` files in $HOME, current or ancestor directories.
+  - `$ stlive settings diff` - Compares settings to the default settings file [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) that ships with the app.
 
 ## Configuration & Command Line Options
 

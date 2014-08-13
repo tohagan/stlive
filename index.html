@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Sencha Touch Live : Live edit your Sencha Touch apps directly into your devices and emulators.  Massively speeds up hybrid app development.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Sencha Touch Live</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tohagan/stlive">View on GitHub</a>
+
+          <h1 id="project_title">Sencha Touch Live</h1>
+          <h2 id="project_tagline">Live edit your Sencha Touch apps directly into your devices and emulators.  Massively speeds up hybrid app development.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tohagan/stlive/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tohagan/stlive/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="live-edit-native-sencha-touch-apps-with-full-phonegapcordova-plugin-support" class="anchor" href="#live-edit-native-sencha-touch-apps-with-full-phonegapcordova-plugin-support"><span class="octicon octicon-link"></span></a>Live edit native <strong>Sencha Touch</strong> apps with full <strong>PhoneGap/Cordova</strong> plugin support.</h2>
+
+<p>If you're developing in a Javascript framework like <a href="http://www.sencha.com/products/touch">Sencha Touch</a> or <a href="http://jquerymobile.com/">jQuery Mobile</a> using <a href="http://phonegap.com/">PhoneGap</a> or <a href="http://cordova.apache.org/">Cordova</a> 
+to access native device features you can now edit your source code on your computer and use this tool 
+to immediately sync your code change for testing onto one or more mobiles devices ... all without needing to compile or redeploy your app!</p>
+
+<h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>If you're already developing Sencha Touch native apps with PhoneGap you probably won't have much to install.  Most existing Sencha Touch / PhoneGap developers will only need to run ... </p>
+
+<pre><code>$ [sudo] npm install -g stlive 
+</code></pre>
+
+<p>... but you might want to checkout the detailed <strong><a href="https://github.com/tohagan/stlive/blob/master/INSTALL.md">Installation Guide</a></strong> to make sure you've got everything - particularly before logging an <a href="https://github.com/tohagan/stlive/issues">issue</a>.</p>
+
+<h3>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h3>
+
+<p>Traditionally when developing Sencha Touch apps on mobile and tablet devices you need to minify and repackage the Sencha source code, then recompile that with the PhoneGap framework with each platform SDK compiler and then redeploy each native app to mobile devices and emulators for testing (For Sencha apps this is done by <code>sencha app build -run native</code>). For native app development this can be a slow process that you have to repeat for each code change before you can test the change on a native device or emulator.</p>
+
+<p>This tool allows you to massively speed up development of your PhoneGap and Sencha Touch native apps by <strong>skipping</strong> all of these steps!</p>
+
+<p>Using this tool you can update any Javascript, CSS, SCSS or HTML source file on your development computer and it will instantly load your changes and restart the app on your device or emulators. This means you can live edit and test changes as you save them onto multiple devices! It even preserves the current client side route so in most cases you can immediately retest the active view without having to re-navigate to that view.</p>
+
+<p>This means you can place any number of devices/emulators in front of you and instantly see the effect of your last code change one or more Android, iOS and WP8 devices!  You can even serve up your source code from your local computer onto a cloud based <a href="https://google.com?q=mobile+device+testing+lab">mobile device testing lab</a> to test your app on hundreds of different mobile devices.  </p>
+
+<p>You can also keep your remote debuggers connected while each update occurs so you save more time by not having to restart your remote debuggers.  Since the Javascript source code is not minified, it's also much easier to debug. You can also elect to load the original unminified Sencha Touch framework files onto the device making debugging of framework code easier.</p>
+
+<p>We've even added integrated a SASS -&gt; CSS compiler so you can now live edit your SASS files (<code>*.scss</code>) and they will be auto compiled and resulting <code>app.css</code> file auto reloaded. So you can now instantly review each styling change on multiple real devices or emulators.</p>
+
+<p>We also make it dead easy to get started with native apps. Using a single command you can create, compile, deploy and run a new live editable Sencha Touch native app directly onto any USB attached devices, emulators and simulators. If you're new to Sencha Touch there's even a detailed Installation Guide and step by step Getting Started guide. </p>
+
+<h3>
+<a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</h3>
+
+<p>The PhoneGap team recently released <a href="http://app.phonegap.com/">PhoneGap Developer App</a> that supports live updating of source code in a PhoneGap 3.x project. The current PhoneGap Developer App is available as a download from the app stores. It's great for trying out PhoneGap with a standard set of core plugins but unfortunately it is unusable for many production projects as you're locked into a fixed set of PhoneGap plugins as deployed in their app store application. These plugins typically don't match types of plugins or plugin versions or internal customisations required by your app. You also can't use any internally developed plugins.</p>
+
+<p>What you really need is a live update client and server that have identical plugins to your final mobile app. For Sencha Touch development you also need additional features and optimisations not supported by the current PhoneGap Developer App project.</p>
+
+<h3>
+<a name="the-solution" class="anchor" href="#the-solution"><span class="octicon octicon-link"></span></a>The Solution</h3>
+
+<p>To solve this, I created <strong>stlive</strong> to create, modify and serve live editable Sencha Touch or other PhoneGap based JS framework projects.</p>
+
+<p>This tool allows you to instrument a new or existing mobile project to support live updating. On startup your instrumented mobile app will offer you options to either (a) run your existing fully compiled and minified native app or (b) start up a live update client that connects to an <code>stlive</code> server that can dispatch your original unmodified HTML/CCS/JS source code from your project folder onto the device.  It also dispatches platform specific code (e.g. Cordova plugin javascript) from <strong>your app project</strong>. The <code>stlive</code> server then watches for any changes in your source code files and will notify the client to reload your project source code and restart your app whenever you change a source file.</p>
+
+<p>Unlike the current PhoneGap Developer App, the live update client and server components and your final native app are now running identically configured Cordova plugins since they are all using the same PhoneGap project instance to do so.  For testing purposes you can be assured that the native app and live update client will be running identical PhoneGap configurations since they are now compiled and deployed as one app and the server is dispatching the same plugin source code.</p>
+
+<p>Using this tool you should be able to complete most of your development and testing using the live update client, only needing to rebuild and redeploy when your project's Cordova plugin configuration is changed.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Sencha Touch Live maintained by <a href="https://github.com/tohagan">tohagan</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>

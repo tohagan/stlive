@@ -11,11 +11,13 @@ Traditionally when developing Sencha Touch apps on mobile and tablet devices you
 
 This tool allows you to massively speed up development of your PhoneGap and Sencha Touch native apps by **skipping** all of these steps!
 
-Using this tool you can update any Javascript, CSS or HTML source file on your development computer and it will instantly load your changes and restart the app on your device or emulators. This means you can live edit and test changes as you save them onto multiple devices! It even preserves the current client side route so in most cases you can immediately retest the active view without having to re-navigate to that view.
+Using this tool you can update any Javascript, CSS, SCSS or HTML source file on your development computer and it will instantly load your changes and restart the app on your device or emulators. This means you can live edit and test changes as you save them onto multiple devices! It even preserves the current client side route so in most cases you can immediately retest the active view without having to re-navigate to that view.
 
 This means you can place any number of devices/emulators in front of you and instantly see the effect of your last code change one or more Android, iOS and WP8 devices!  You can even serve up your source code from your local computer onto a cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices.  
 
 You can also keep your remote debuggers connected while each update occurs so you save more time by not having to restart your remote debuggers.  Since the Javascript source code is not minified, it's also much easier to debug. You can also elect to load the original unminified Sencha Touch framework files onto the device making debugging of framework code easier.
+
+We've even added integrated a SASS -> CSS compiler so you can now live edit your SASS files (`*.scss`) and they will be auto compiled and resulting `app.css` file auto reloaded. So you can now instantly review each styling change on multiple real devices or emulators.
 
 ### The Problem
 
@@ -234,25 +236,7 @@ Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
     $ stlive sass 
 
 Starts the SASS Compass compiler configured in your `.stlive.config` settings file.
-
-**NOTE**: You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
-
-Example `~/.stlive.config` **Windows** configuration:
-
-    ...
-    // Set this to true to auto start SASS Compiler with 'stlive serve' command
-    "sass": false,
-
-    "bgtasks": {
-        "sass": {
-            "name": "Compass SASS Compiler",
-            "cmd": "C:/Ruby200-x64/bin/compass.bat watch -c config.rb app.scss",
-            "dir": "resources/sass",
-            // Output when compiler starts ok
-            "success": "Compass is polling"
-        }
-    },
-    ...
+Refer to  **[Installation Guide](INSTALL.md)** for details of how to install and configure the SASS compiler.
 
 ### Run "Live Edit" App Server
 

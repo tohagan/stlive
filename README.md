@@ -116,13 +116,15 @@ Refer to **[Installation Guide](INSTALL.md)** for both **Device Simulators and E
 - **iOS**: Follow [these instructions](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
 - **Android 4.4+**: Follow [these instructions](https://developer.chrome.com/devtools/docs/remote-debugging). Needs  **Chrome v32** or later on desktop computer.  
 
-## Live Edit SASS/CSS styling
+## Live Edit SASS stylesheet files
 
 **Step 1.** Install Ruby, SASS and Compass compiler as per **[Installation Guide](INSTALL.md)** instructions. 
 
-**Step 2.** Configure the SASS compiler in your `.stlive.config` setting file. You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
+**Step 2.** Configure the SASS compiler in your `.stlive.config` setting files. 
 
-Test the SASS compiler starts and resolve any configuration issues ... 
+**NOTE**: You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
+
+Test that the SASS compiler starts and resolve any configuration issues ... 
 
 	$ stlive sass
     [sass] Compass SASS Compiler starting
@@ -148,7 +150,13 @@ Use `Ctrl-C` to Stop the SASS compiler.
 
     $base_color: #186FA5;
  
-You should see the compass compiler detect the change and recompile your file and then the ST Live server detect the change to the `resources/css/app.css` file and reload your app with the new theme color. 
+You should see the compass compiler detect the change and recompile your SASS file and then the ST Live server detect the resulting change to the `resources/css/app.css` file and it reload your app with a new theme color.
+
+For more information on theming Sencha Touch apps refer to ...
+
+- [Getting Started with Sencha Touch 2: Build a Weather Utility App (Part 2)](http://www.sencha.com/blog/getting-started-with-sencha-touch-2-build-a-weather-utility-app-part-2/)
+- [An Introduction to Theming Sencha Touch](http://www.sencha.com/blog/an-introduction-to-theming-sencha-touch)
+- [Video Tutorial](http://www.sencha.com/learn/theming-sencha-touch). 
 
 ## Live Edit using a Desktop or Mobile Browser
 
@@ -156,15 +164,15 @@ You don't even need a mobile device to use `stlive`. Just open the URL in Chrome
 
 **NOTE**: Your app should work provided you're not calling any PhoneGap plugin APIs directly. Sencha Touch provides wrapper classes that can emulate some of the PhoneGap APIs when your app is run in a desktop browser (See devices in [Sencha Touch API](http://docs.sencha.com/touch/2.3.2). Example: [Ext.device.FileSystem](http://docs.sencha.com/touch/2.3.2/source/FileSystem.html#Ext-device-FileSystem).  
 
-### Live Internet Demo or Testing  (Cool Feature!)
+## Live Internet Demo or Live Testing  (Cool Feature!)
 
-The  `--localtunnel` option creates an encrypted socket connect from your `stlive` server to a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**. This will *punch a hole in your firewall* and expose your `stlive server` server with a randomly generated domain name that is accessible on the Internet if you know the random path. 
+The  `--localtunnel` option creates an encrypted socket connection from your `stlive` server to new host name that is a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**. This will expose your `stlive server` server with a randomly generated host name that is accessible on the Internet if you know the new random host name. 
 
 	$ stlive serve --localtunnel
  
 You can now use this external URL for browser or device testing, or to demo or test development versions of your app to friends, testers or customers. You can even connect your app server to cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices or use it when you visit an [Open Device Lab](http://lab-up.org).  
 
-**SECURITY WARNING:** While the node app server is generally regarded as secure and should in theory only expose content files as read only, and the random domain name provides some additional protection, there is some small risk that a security hole exists. NO security penetration testing has been conducted. **No liability accepted. Use this at your own risk!**  This feature is for brief demoes and testing only. Not recommended for a production service.
+**SECURITY WARNING:** While the node app server is generally regarded as secure enabling this feature effectively *punches a hole in your firewall*. In theory it exposes your source files as read only and the random domain name provides some additional protection however there is some small risk that a security vulnerability exists. NO penetration testing has been conducted. This feature is intended for brief demoes and testing only. Not recommended for a production service or prolonged or frequent use.  **As per Apache 2.0 License - No liability is accepted. Use this at your own risk!**  
 
 ### Example 1 - Create a named URL endpoint outside your firewall:
 

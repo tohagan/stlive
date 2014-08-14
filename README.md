@@ -83,38 +83,51 @@ The first time you run `stlive`, it will create a copy of the [`defaults.config`
 
 *But hang on ... We don't even have an app yet!*  ... Trust me ... You soon will.
 
-Refer to **[Installation Guide](INSTALL.md)** for both **Device Simulators and Emulators** and **Javascript Remote Debugging**. 
+Refer to **[Installation Guide](INSTALL.md)** topics covering **Device Simulators and Emulators** and **Javascript Remote Debugging**. 
 
 **Step 3.** Create, Compile, Deploy and Run a new live edittable Sencha Touch / PhoneGap app:
 
+Open a terminal widow. For OSX, you may need to change the background color to black (or a dark color) to view colored text.
+
     $ stlive create --run DemoApp
 
-**Step 4.** Now run a live update server from your new project folder.  The server should then display the **IP Address** and **Port number** it's listened on.
+At this runs you will see the highlighted Sencha and Cordova commands it's using to generate your new new app based on your settings.  If all is well, at the end of this process you should have a new mobile app deployed and running on your devices/emulators/simulator.  If you need to fix any configuration issues and perform a rebuild you can run `stlive build --run` in the new `DemoApp` project subdirectory.
+
+**Step 4.** Now run a live update server from your new `DemoApp` project folder.  The server will then display the **IP Address** and **Port number** it's listened on.
 
 	$ cd DemoApp
-
 	$ stlive serve
 	listening on 192.168.0.17:3000
 	Hit Control-C to stop
 
 **Step 5.** Make sure the app has started on your device and select the **[Live Update]()** link then key in the **IP Address** and **Port number** to connect to the server.
 
-  - You should see the server display the sources files the client app is requesting.
-  - For Cordova platform files, it will also display the actual file path dispatched (in green).  
-  - You can use this to identify and fix any network or project configuration issues.
-  - Finally you should see your new Sencha Touch displayed on your device or emulator.
+  - You should see the server display the source files the client app is requesting.
+    - For Cordova platform and plugin files, it will also display the actual file path dispatched (in green).  
+    - You can use this to identify and fix any network or project configuration issues.
+  - Finally you should see 'Welcome to Sencha Touch 2' displayed as the app titlebar on your device or emulator.
 
-**Step 6.**  Now edit the view that is displayed:
+**Step 6.**  Now **live edit** the view that is displayed:
 
-   - Open `app/views/Main.js` and change the Welcome message and save the file.
-   - You should see the server reload the app and the new Welcome message displayed on the device.
-     - Shows paths loaded for platform specific PhoneGap files (green) 
-     - Highlights your Sencha Touch app code (yellow)
+   - Open `DemoApp/app/views/Main.js` and edit the Welcome message and save the file.
+     - You should see the app instantly reload iteself from the server.
+     - App now displays the new Welcome message on the device.
+   - Connect **multiple** devices of **mixed types** (iOS, Android, WP8) 
+     - They should all reload in response to a source file change.  
+     - Each will load the Cordova JS files for their platform. 
 
 **Step 7.** Connect to the app using a remote debugger
 
 - **iOS**: Follow [these instructions](http://phonegap-tips.com/articles/debugging-ios-phonegap-apps-with-safaris-web-inspector.html)
 - **Android 4.4+**: Follow [these instructions](https://developer.chrome.com/devtools/docs/remote-debugging). Needs  **Chrome v32** or later on desktop computer.  
+
+**Step 8.** Rebuilding and Redeployment
+
+If you need to rebuild and redeploy your app (e.g. after adding/removing plugins) you can run ...
+
+    $ stlive build --run
+
+This is basically the same as running `sencha app build --run native` but it uses the version of sencha command configured in your settings file which you can define as a local version controlled file in your project folder. In the future we may add additional environment variable settings so for example could might select other SDK version and settings as well. This will make it easy to switch between projects without having to reconfigure your build environment. 
 
 ## Live Edit SASS stylesheet files
 
@@ -191,11 +204,11 @@ A `localtunnel` connection can be rather slow so let's compile it first and then
 
 	$ cd MyApp
 
-Compile Sencha project code into phonegap/www
+Compile Sencha project code into `phonegap/www/`
 
 	$ sencha app build native
 
-**IMPORTANT**: Change to the `phonegap` subdirectory of your Sencha project. The server will now load the compressed files from `phonegap/www` and your app will load much faster.
+**IMPORTANT**: Change to the `phonegap` subdirectory of your Sencha project. The server will now load the files from `phonegap/www/` and your app will load much faster as it's now loading a single `app.js` file containing your compressed version of *all* of your Sencha Touch class files and their dependent framework classes.
 
 	$ cd phonegap
 
@@ -207,13 +220,39 @@ Now show an external demo of your app using compressed code:
 	listening on 192.168.7.54:3000
 	localtunnel : https://jgwpgspbip.localtunnel.me
 
+## Preparing for MDM or App Store deployment
+
+AppStores or your corporate MDM are unlikely to accept your mobile app with "live edit" instrumentation so we've made it easy to remove this prior to rebuilding for final release and add it back later so you can continue development.  
+
+To remove the live editing and rebuild and test ... 
+
+    $ cd MyApp
+    $ stlive remove
+    $ stlive build --run
+
+Add live editting back you can easily add it back in and redeploy ...
+You can also use this for an existing Sench Touch app:
+
+    $ stlive add
+    $ stlive build --run
+
+**IMPORTANT:**  `stlive remove` will **replace** your project's `config.xml` file with the original version of this file `config.orig.xml` created before the app was instrumented to support live editting.  Similarly `stlive add` will **replace** your project's `config.xml` file with the live edit version of this file `config.live.xml` that is required to support live editting.
+
+So as you make changes to your `config.xml` file you will need to ensure that these changes are transferred to the `config.orig.xml` and `config.live.xml` files so you can safely perform `stlive add` and `stlive remove` commands and not loose your important changes to `config.xml`. 
+
 ## Command Summary
 
-### Create new Sencha Touch app with "Live Edit" 
+### Create & Build new Sencha Touch app with "Live Edit". 
 
 Create a new Sencha Touch 2.x + PhoneGap 3.x app with an embedded "live edit" client.
 
-    $ stlive create [appDomain] [appName]
+    $ stlive create [--run] [appDomain] [appName]
+
+Example: 
+    
+    $ stlive create --run au.com.mycompany MyCoolApp
+
+The `--run` option will deploy and run the new app on attached devices.
 
 **TIP**: The domain or app name can be specified or use a default from your `.stlive.config` files.  If you create all your Sencha projects under a common parent folder you can create a `.stlive.config` in that parent folder and setup common defaults like `appDomain` for all your projects.
  
@@ -221,15 +260,22 @@ Create a new Sencha Touch 2.x + PhoneGap 3.x app with an embedded "live edit" cl
 
 Same as `sencha app build native` but it uses the version of Sencha Command configured in `.stlive.config` in your home directory or current/ancestor directories of your project.
 
-    $ stlive build
-  
-**TIP**: Commit a `.stlive.config` file as part of your project so you can auto select the right version of Sencha Command and Sencha Touch.  A future version may support settings environment variables prior to running Sencha Command so that the build process (and all the related build tools) can be customised on a per project basis. This would make it fast and easy to switch build parameters and tools just by changing projects directory and ensure that it's all version controlled.
+    $ stlive build [--run]
 
+The `--run` option will deploy and run the app on attached devices.
+
+
+**TIP**: This is basically the same as running `sencha app build --run native` but it uses the version of Sencha Command configured in your settings file.  So you may wish to add a `.stlive.config` file as part of your project, so you can auto select the right version of Sencha Command and Sencha Touch.  
+
+A future version may support settings environment variables prior to running Sencha Command so that the build process (and all the related build tools) can be customised on a per project basis. This would make it fast and easy to switch build parameters and tools just by changing projects directory and ensure that it's all version controlled.
+
+I recommend that your project `.stlive.config` files only contain project specific settings and that it inherit other settings from config files in your home or ancestor folders. When we roll out new releases of `stlive` that have new features and settings you will likely avoid the need to update each of your project's config files.  You should always include the "_schema" property in your config files so the app can report schema version changes.
+  
 ### Compile and Deploy PhoneGap app
 
-These commands will not recompile your sencha code, just the PhoneGap code. But it will redeploy to the device which can be quicker than doing this manually:
+These commands will not recompile your Sencha code, just the PhoneGap code. But it will redeploy to the device which can be quicker than doing this manually:
 
-  - `$ stlive run [platform ...]` - Recompiles and deploys your app to the device. 
+  - `$ stlive run [platform ...]` - Recompiles and deploys your app to devices/emulators/simulators. 
 
 ### Instrumenting existing mobile apps for "Live Edit"
 

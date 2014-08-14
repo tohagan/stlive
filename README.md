@@ -29,7 +29,7 @@ What you really need is a live update client and server that have identical plug
 
 To solve this, I created **stlive** to create, modify and serve live editable Sencha Touch or other PhoneGap based JS framework projects.
 
-This tool allows you to instrument a new or existing mobile project to support live updating. On startup your instrumented mobile app will offer you options to either (a) run your existing fully compiled and minified native app or (b) start up a live update client that connects to an `stlive` server that can dispatch your original unmodified HTML/CCS/JS source code from your project folder onto the device.  It also dispatches platform specific code (e.g. Cordova plugin javascript) from **your app project**. The `stlive` server then watches for any changes in your source code files and will notify the client to reload your project source code and restart your app whenever you change a source file.
+This tool allows you to instrument a new or existing mobile project to support live updating. On startup your instrumented mobile app will offer you options to either (a) run your existing fully compiled and minified native app or (b) start up a live update client that connects to an `stlive` server that can dispatch your original unmodified HTML/CCS/JS source code from your project folder onto the device.  It also dispatches platform specific code (e.g. Cordova plugin Javascript) from **your app project**. The `stlive` server then watches for any changes in your source code files and will notify the client to reload your project source code and restart your app whenever you change a source file.
 
 Unlike the current PhoneGap Developer App, the live update client and server components and your final native app are now running identically configured Cordova plugins since they are all using the same PhoneGap project instance to do so.  For testing purposes you can be assured that the native app and live update client will be running identical PhoneGap configurations since they are now compiled and deployed as one app and the server is dispatching the same plugin source code.
 
@@ -196,7 +196,7 @@ You can now use this external URL for browser or device testing, or to demo or t
 	listening on 192.168.7.54:3000
 	localtunnel : https://jgwpgspbip.localtunnel.me     <<<== Random Internet URL 
 
-On successful connection, the server will report it's URL endpoint as: http://**random**.localtunnel.me .  You can now key in this endpoint to the Live Update app on your mobile devices.
+On successful connection, the server will report its URL endpoint as: http://**random**.localtunnel.me .  You can now key in this endpoint to the Live Update app on your mobile devices.
 
 ### Example 2 - Serve Compiled Sencha Code:
 
@@ -230,13 +230,13 @@ To remove the live editing and rebuild and test ...
     $ stlive remove
     $ stlive build --run
 
-Add live editting back you can easily add it back in and redeploy ...
+Add live editing back you can easily add it back in and redeploy ...
 You can also use this for an existing Sench Touch app:
 
     $ stlive add
     $ stlive build --run
 
-**IMPORTANT:**  `stlive remove` will **replace** your project's `config.xml` file with the original version of this file `config.orig.xml` created before the app was instrumented to support live editting.  Similarly `stlive add` will **replace** your project's `config.xml` file with the live edit version of this file `config.live.xml` that is required to support live editting.
+**IMPORTANT:**  `stlive remove` will **replace** your project's `config.xml` file with the original version of this file `config.orig.xml` created before the app was instrumented to support live editing.  Similarly `stlive add` will **replace** your project's `config.xml` file with the live edit version of this file `config.live.xml` that is required to support live editing.
 
 So as you make changes to your `config.xml` file you will need to ensure that these changes are transferred to the `config.orig.xml` and `config.live.xml` files so you can safely perform `stlive add` and `stlive remove` commands and not loose your important changes to `config.xml`. 
 

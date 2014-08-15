@@ -42,7 +42,7 @@ If you **don't** plan to use this service you'll also need to install the platfo
 - **iOS**: iOS Simulator installs with XCode SDK and supports iPad/iPhone/iPod.
 - **Android**:
   - The Android emulator that ships with the SDK is a bit of a time waster so you might want something thats faster and simpler to use.
-  - I've like [Geny Motion](http://www.genymotion.com/) and I've also used [Blue Stacks](http://www.bluestacks.com/). There are more out there I've not yet tested.
+  - I've used [Geny Motion](http://www.genymotion.com/) (my current preference) and also [Blue Stacks](http://www.bluestacks.com/) (but it's not really a developer tool). There are more out there I've not yet tested.
 - **WP8**: [Windows Phone 8 Emulator](http://msdn.microsoft.com/en-us/library/windows/apps/ff402563(v=vs.105).aspx) installs with Visual Studio SDK. 
    
 ### Javascript Remote Debugging

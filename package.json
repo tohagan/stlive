@@ -1,6 +1,6 @@
 {
     "name": "stlive",
-    "version": "0.1.15",
+    "version": "0.2.0",
     "description": "Live edit your JS/HTML/CSS source code in Sencha Touch / PhoneGap projects. Autosync changes to multiple mobile devices of mixed OS types. Massively speed up your mobile app development by avoiding most compiling and redeployment.",
     "homepage": "http://github.com/tohagan/stlive",
     "repository": {
@@ -46,7 +46,7 @@
         "node": ">=0.10.0"
     },
     "dependencies": {
-        "cli-config": "0.3.3",
+        "cli-config": "0.4.0",
         "shelljs": "0.2.6",
         "terminal-colors": "0.1.3",
         "connect-phonegap": "tohagan/connect-phonegap"

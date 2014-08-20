@@ -3,12 +3,86 @@
 <head>
     <meta charset="UTF-8">
 </script>
+<style type="text/css">
+.action {
+	-moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52) );
+	background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
+	background-color:#b8e356;
+	-webkit-border-top-left-radius:14px;
+	-moz-border-radius-topleft:14px;
+	border-top-left-radius:14px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:14px;
+	-moz-border-radius-bottomright:14px;
+	border-bottom-right-radius:14px;
+	-webkit-border-bottom-left-radius:14px;
+	-moz-border-radius-bottomleft:14px;
+	border-bottom-left-radius:14px;
+	text-indent:1px;
+	border:4px solid #83c41a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	font-weight:bold;
+	font-style:normal;
+	height:60px;
+	line-height:50px;
+	width:250px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:2px 2px 0px #86ae47;
+	margin: 10px;
+
+}
+.action:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356) );
+	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
+	background-color:#a5cc52;
+}.action:active {
+	position:relative;
+	top:1px;
+}
+
+.btndiv {
+  width: 100%;
+  text-align: center;
+}
+
+.titlebar {
+	font-family:Arial;
+	font-size:19px;
+	font-weight:bold;
+	font-style:normal;
+	height:60px;
+	line-height:60px;
+	width: 100%;
+	margin-bottom: 30px;
+	text-align: center;
+	text-shadow:2px 2px 0px grey;
+	background-color: lightblue;
+	color: #FFFFFF;
+}
+
+body {
+    background-color: #E5FFE5;
+}
+
+</style>
 </head>
 <body>
-    <ul>
-        <li><a href="spec.html">Run Unit Tests</a></li>
-        <li><a href="live/index.html">Live Update</a></li>
-        <li><a href="index.html">Your App</a></li>
-    </ul>
+    <div class="titlebar"><h2>Sench Touch Live</h2></div>
+	<div>
+	  <div class="btndiv"><input class="action" type="button" value="Unit Tests" onClick="window.location='spec.html' "></div>
+	  <div class="btndiv"><input class="action" type="button" value="Your App" onClick="window.location='index.html' "></div>
+	  <div class="btndiv"><input class="action" type="button" value="Live Update" onClick="window.location='live/index.html' "></div>
+	</div>
 </body>
 </html>

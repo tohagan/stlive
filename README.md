@@ -179,7 +179,7 @@ You don't even need a mobile device to use `stlive`. Just open the URL in Chrome
 
 ## Live Internet Demo or Live Testing  (Cool Feature!)
 
-The  `--localtunnel` option creates an encrypted socket connection from your `stlive` server to new host name that is a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**. This will expose your `stlive server` server with a randomly generated host name that is accessible on the Internet if you know the new random host name. 
+The  `--localtunnel` option creates an encrypted socket connection from your `stlive` server to new host name that is a random subdomain of **[localtunnel.me](http://localtunnel.me)**. This will expose your `stlive server` server with a random host name that is accessible on the Internet if you know the new random host name. 
 
 	$ stlive serve --localtunnel
  
@@ -300,7 +300,7 @@ Runs a live update server in your Sencha Touch or PhoneGap project folder:
     $ stlive serve [--port number] [--localtunnel] [--sass]
 
 - `--port number` - Changes default server port number
-- `--localtunnel` - Connects your `stlive` server to a randomly generated subdomain of **[localtunnel.me](http://localtunnel.me)**
+- `--localtunnel` - Connects your server to a random subdomain of **[localtunnel.me](http://localtunnel.me)**
 - `--sass` - Starts a SASS Compass compiler with the Live Edit server.  
   - Your Sench Touch SASS files in `resources/sass/*.scss` are now also live editable.
   - set `"sass": true` in your settings file to always auto start/stop this compiler as a background task.

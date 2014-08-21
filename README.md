@@ -304,6 +304,7 @@ Runs a live update server in your Sencha Touch or PhoneGap project folder:
 - `--sass` - Starts a SASS Compass compiler with the Live Edit server.  
   - Your Sench Touch SASS files in `resources/sass/*.scss` are now also live editable.
   - set `"sass": true` in your settings file to always auto start/stop this compiler as a background task.
+- `--qr` - Displays a [QR Code](http://en.wikipedia.org/wiki/QR_code) for server URL and localtunnel URL.
 
 All these options can be preconfigured in a settings file.
 

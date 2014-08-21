@@ -7,6 +7,9 @@
     "touchSdk": "~/bin/Sencha/touch-2.3.2",
     "senchaCmd": "sencha-4.0.4.84",
 
+    // Deploy and run the mobile app
+    "run": false,
+
     // ** `stlive create` only OPTIONS **
 
     // NOTE: These options are COPIED into NEW Projects created by stlive

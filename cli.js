@@ -3,8 +3,8 @@
 try {
     require('cli-config').run({
         dirname: __dirname, 
-        clone: true,        // Clones default.config to '~/.stlive.config' 
-        ancestors: true,    // Search curr and ancestor dirs for '.stlive.config' files
+        clone: true,        // Clones .stlive.json to '~/.stlive.json' 
+        ancestors: true,    // Search curr and ancestor dirs for '.stlive.json' files
         cmdTree: require('./lib')
     });
 } catch (ex) {

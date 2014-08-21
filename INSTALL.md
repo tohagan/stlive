@@ -28,7 +28,7 @@ Please [log issues](https://github.com/tohagan/stlive/issues) to record other co
 
 ### Compiling your native app
 
-You can either sign up for an account at [PhoneGap Build Service](https://build.phonegap.com/apps) to compile your apps online OR use platform SDK tools to compile them on your computer.  You can configure your service account name and password in your `.stlive.config` files to copy them into new projects OR you can configure them in the `phonegap.local.properties` file.
+You can either sign up for an account at [PhoneGap Build Service](https://build.phonegap.com/apps) to compile your apps online OR use platform SDK tools to compile them on your computer.  You can configure your service account name and password in your `.stlive.json` files to copy them into new projects OR you can configure them in the `phonegap.local.properties` file.
 
 If you **don't** plan to use this service you'll also need to install the platform SDKs that include compilers and emulators or simulators.
 
@@ -42,7 +42,7 @@ If you **don't** plan to use this service you'll also need to install the platfo
 - **iOS**: iOS Simulator installs with XCode SDK and supports iPad/iPhone/iPod.
 - **Android**:
   - The Android emulator that ships with the SDK is a bit of a time waster so you might want something thats faster and simpler to use.
-  - I've used [Geny Motion](http://www.genymotion.com/) (my current preference) and also [Blue Stacks](http://www.bluestacks.com/) (but it's not really a developer tool). There are more out there I've not yet tested.
+  - I've used [Geny Motion](http://www.genymotion.com/) - my current preference. There are more out there I've not yet tested.
 - **WP8**: [Windows Phone 8 Emulator](http://msdn.microsoft.com/en-us/library/windows/apps/ff402563(v=vs.105).aspx) installs with Visual Studio SDK. 
    
 ### Javascript Remote Debugging
@@ -80,8 +80,8 @@ Windows:
 
     C:\> npm update -g stlive 
 
-There may be new options available that you now add to your existing `~/.stlive.config` file.
-run `stlive settings diff` to compare [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) with your home settings file `~/.stlive.config` or a local settings file.
+There may be new options available that you now add to your existing `~/.stlive.json` file.
+run `stlive settings diff` to compare [`.stlive.json`](https://github.com/tohagan/stlive/blob/master/.stlive.json) with your home settings file `~/.stlive.json` or a local settings file.
 
 Follow the **Getting Started** guide in **[README](README.md)** file to test your install. 
 
@@ -98,7 +98,7 @@ The SASS Compiler is developed in Ruby so you must first ensure that that you ha
     $ whereis compass    # Identify the install path for Compass
     /usr/bin/compass     # typically install here
 
-Ensure these properties are in your `~/.stlive.config` file
+Ensure these properties are in your `~/.stlive.json` file
 
     "sass": false,   // true if you wish to always auto start SASS compiler with stlive server
     "bgtasks": {
@@ -118,7 +118,7 @@ Ensure these properties are in your `~/.stlive.config` file
     C:\> gem install sass
     C:\> gem install compass
 
-Ensure these properties are in your `~/.stlive.config` file
+Ensure these properties are in your `~/.stlive.json` file
 
     "sass": false,   // true if you wish to always auto start SASS compiler with stlive server
     "bgtasks": {

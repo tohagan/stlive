@@ -114,6 +114,9 @@
     // Connects server to http://<random>.localtunnel.me via an encrypted tunnel.
     "localtunnel": false,
 
+    // Display Server URL as a QR Code
+    "qr": false,
+
     // Auto starts SASS compiler with server. Check the path in bgtasks.sass.cmd
     "sass": false,
 

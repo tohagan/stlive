@@ -67,9 +67,9 @@ Run ...
 
     $ stlive settings show
 
-The first time you run `stlive`, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file that ships with the app to your local settings file `~/.stlive.config`.  `stlive` merges settings from `.stlive.config` files it finds in your current, ancestor and home directories. This allows you to configure settings for a group of projects by placing a copy in a parent folder contains the related project as subfolders. You can then override and version control settings for a specific project by adding an `.stlive.config` file to the project subfolder.
+The first time you run `stlive`, it will create a copy of the [`.stlive.json`](https://github.com/tohagan/stlive/blob/master/.stlive.json) file that ships with the app to your local settings file `~/.stlive.json`.  `stlive` merges settings from `.stlive.json` files it finds in your current, ancestor and home directories. This allows you to configure settings for a group of projects by placing a copy in a parent folder contains the related project as subfolders. You can then override and version control settings for a specific project by adding an `.stlive.json` file to the project subfolder.
 
-`.stlive.config` files configure preferences including:
+`.stlive.json` files configure preferences including:
 
 - `touchSdk` - Location of your Sencha Touch SDK (e.g. "~/bin/Sencha/touch-2.3.2").
 - `senchaCmd`: Version specific Sencha Command (e.g. `"sencha-4.0.4.84"` or just `"sencha"` which will get the last installed)
@@ -77,7 +77,7 @@ The first time you run `stlive`, it will create a copy of the [`defaults.config`
 - `platforms`: Select `android`, `ios` or `wp8` platforms to add to new projects.
 - `build.remote`: Set to `true` to enable PhoneGap Build service and update  `build.username` and `build.password`.  These settings are **copied** into new projects and then read from each project.  
 
-**Windows**: You'll find the home file at `%USERPROFILE%\.stlive.config`.  You'll need a modern text editor like  [Brackets](http://brackets.io/), [Notepad++](http://notepad-plus-plus.org/download) or [TextPad](https://www.textpad.com/). Windows Notepad won't be much use. 
+**Windows**: You'll find the home file at `%USERPROFILE%\.stlive.json`.  You'll need a modern text editor like  [Brackets](http://brackets.io/), [Notepad++](http://notepad-plus-plus.org/download) or [TextPad](https://www.textpad.com/). Windows Notepad won't be much use. 
 
 **Step 2.** Start your simulators / emulators / devices 
 
@@ -85,7 +85,7 @@ The first time you run `stlive`, it will create a copy of the [`defaults.config`
 
 Refer to **[Installation Guide](INSTALL.md)** topics covering **Device Simulators and Emulators** and **Javascript Remote Debugging**. 
 
-**Step 3.** Create, Compile, Deploy and Run a new live edittable Sencha Touch / PhoneGap app:
+**Step 3.** Create, Compile, Deploy and Run a new live editable Sencha Touch / PhoneGap app:
 
 Open a terminal widow. For OSX, you may need to change the background color to black (or a dark color) to view colored text.
 
@@ -105,12 +105,12 @@ At this runs you will see the highlighted Sencha and Cordova commands it's using
   - You should see the server display the source files the client app is requesting.
     - For Cordova platform and plugin files, it will also display the actual file path dispatched (in green).  
     - You can use this to identify and fix any network or project configuration issues.
-  - Finally you should see 'Welcome to Sencha Touch 2' displayed as the app titlebar on your device or emulator.
+  - Finally you should see 'Welcome to Sencha Touch 2' displayed as the app title bar on your device or emulator.
 
 **Step 6.**  Now **live edit** the view that is displayed:
 
    - Open `DemoApp/app/views/Main.js` and edit the Welcome message and save the file.
-     - You should see the app instantly reload iteself from the server.
+     - You should see the app instantly reload itself from the server.
      - App now displays the new Welcome message on the device.
    - Connect **multiple** devices of **mixed types** (iOS, Android, WP8) 
      - They should all reload in response to a source file change.  
@@ -127,13 +127,13 @@ If you need to rebuild and redeploy your app (e.g. after adding/removing plugins
 
     $ stlive build --run
 
-This is basically the same as running `sencha app build --run native` but it uses the version of sencha command configured in your settings file which you can define as a local version controlled file in your project folder. In the future we may add additional environment variable settings so for example could might select other SDK version and settings as well. This will make it easy to switch between projects without having to reconfigure your build environment. 
+This is basically the same as running `sencha app build --run native` but it uses the version of Sencha Command configured in your settings file which you can define as a local version controlled file in your project folder. In the future we may add additional environment variable settings so for example could might select other SDK version and settings as well. This will make it easy to switch between projects without having to reconfigure your build environment. 
 
-## Live Edit SASS stylesheet files
+## Live Edit SASS style sheet files
 
 **Step 1.** Install Ruby, SASS and Compass compiler as per **[Installation Guide](INSTALL.md)** instructions. 
 
-**Step 2.** Configure the SASS compiler in your `.stlive.config` setting files. 
+**Step 2.** Configure the SASS compiler in your `.stlive.json` setting files. 
 
 **NOTE**: You must configure the **full path** to the compass compiler in the `bgtasks.sass.cmd` option.
 
@@ -173,7 +173,7 @@ For more information on theming Sencha Touch apps refer to ...
 
 ## Live Edit using a Desktop or Mobile Browser
 
-You don't even need a mobile device to use `stlive`. Just open the URL in Chrome or Safari mobile or desktop browsers.  *The browser will similarly autoreload as you edit source code.*   
+You don't even need a mobile device to use `stlive`. Just open the URL in Chrome or Safari mobile or desktop browsers.  *The browser will similarly auto-reload as you edit source code.*   
 
 **NOTE**: Your app should work provided you're not calling any PhoneGap plugin APIs directly. Sencha Touch provides wrapper classes that can emulate some of the PhoneGap APIs when your app is run in a desktop browser (See devices in [Sencha Touch API](http://docs.sencha.com/touch/2.3.2). Example: [Ext.device.FileSystem](http://docs.sencha.com/touch/2.3.2/source/FileSystem.html#Ext-device-FileSystem).  
 
@@ -254,22 +254,22 @@ Example:
 
 The `--run` option will deploy and run the new app on attached devices.
 
-**TIP**: The domain or app name can be specified or use a default from your `.stlive.config` files.  If you create all your Sencha projects under a common parent folder you can create a `.stlive.config` in that parent folder and setup common defaults like `appDomain` for all your projects.
+**TIP**: The domain or app name can be specified or use a default from your `.stlive.json` files.  If you create all your Sencha projects under a common parent folder you can create a `.stlive.json` in that parent folder and setup common defaults like `appDomain` for all your projects.
  
 ### Builds a Sencha Touch app
 
-Same as `sencha app build native` but it uses the version of Sencha Command configured in `.stlive.config` in your home directory or current/ancestor directories of your project.
+Same as `sencha app build native` but it uses the version of Sencha Command configured in `.stlive.json` in your home directory or current/ancestor directories of your project.
 
     $ stlive build [--run]
 
 The `--run` option will deploy and run the app on attached devices.
 
 
-**TIP**: This is basically the same as running `sencha app build --run native` but it uses the version of Sencha Command configured in your settings file.  So you may wish to add a `.stlive.config` file as part of your project, so you can auto select the right version of Sencha Command and Sencha Touch.  
+**TIP**: This is basically the same as running `sencha app build --run native` but it uses the version of Sencha Command configured in your settings file.  So you may wish to add a `.stlive.json` file as part of your project, so you can auto select the right version of Sencha Command and Sencha Touch.  
 
 A future version may support settings environment variables prior to running Sencha Command so that the build process (and all the related build tools) can be customised on a per project basis. This would make it fast and easy to switch build parameters and tools just by changing projects directory and ensure that it's all version controlled.
 
-I recommend that your project `.stlive.config` files only contain project specific settings and that it inherit other settings from config files in your home or ancestor folders. When we roll out new releases of `stlive` that have new features and settings you will likely avoid the need to update each of your project's config files.  You should always include the "_schema" property in your config files so the app can report schema version changes.
+I recommend that your project `.stlive.json` files only contain project specific settings and that it inherit other settings from config files in your home or ancestor folders. When we roll out new releases of `stlive` that have new features and settings you will likely avoid the need to update each of your project's config files.  You should always include the "_schema" property in your config files so the app can report schema version changes.
   
 ### Compile and Deploy PhoneGap app
 
@@ -289,7 +289,7 @@ Run these command in a Sencha Touch, PhoneGap or Cordova project folder:
 
     $ stlive sass 
 
-Starts the SASS Compass compiler configured in your `.stlive.config` settings file.
+Starts the SASS Compass compiler configured in your `.stlive.json` settings file.
 Refer to  **[Installation Guide](INSTALL.md)** for details of how to install and configure the SASS compiler.
 
 ### Run "Live Edit" App Server
@@ -311,16 +311,16 @@ All these options can be preconfigured in a settings file.
 
   - `$ stlive --version`  - Displays app version
 
-  - `$ stlive settings show` - Shows settings merged from `.stlive.config` files in $HOME, current or ancestor directories.
-  - `$ stlive settings diff` - Compares settings to the default settings file [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) that ships with the app.
+  - `$ stlive settings show` - Shows settings merged from `.stlive.json` files in $HOME, current or ancestor directories.
+  - `$ stlive settings diff` - Compares settings to the default settings file [`.stlive.json`](https://github.com/tohagan/stlive/blob/master/.stlive.json) that ships with the app.
 
 ## Configuration & Command Line Options
 
 - All **configuration options** can be overridded using corresponding **command line options**.
 
-You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. The [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file contains a list of all the options and their default settings.  The properties are all documented with comments inside this file.
+You'll find it helpful in speeding up creating new apps and ensuring they are consistently configured. The [`.stlive.json`](https://github.com/tohagan/stlive/blob/master/.stlive.json) file contains a list of all the options and their default settings.  The properties are all documented with comments inside this file.
 
-The first time you run the app, it will create a copy of the [`defaults.config`](https://github.com/tohagan/stlive/blob/master/defaults.config) file to `~/.stlive.config`. You can then edit this user settings file to configure your preferences.  
+The first time you run the app, it will create a copy of the [`.stlive.json`](https://github.com/tohagan/stlive/blob/master/.stlive.json) file to `~/.stlive.json`. You can then edit this user settings file to configure your preferences.  
 
 Setting & command line properties for `stlive create` include:
  
@@ -328,7 +328,7 @@ Setting & command line properties for `stlive create` include:
 - Set of PhoneGap plugins added to new projects.
 - Enable/Disable PhoneGap Build service.
 - PhoneGap build service user name and password
-- [Many other options](https://github.com/tohagan/stlive/blob/master/defaults.config).
+- [Many other options](https://github.com/tohagan/stlive/blob/master/.stlive.json).
 
 Configuration properties for `stlive create` include:
 
@@ -341,7 +341,7 @@ Configuration properties for `stlive create` include:
 
 ## Overriding Options
 
-The first time you run this app it will create a **~/.stlive.config** file in your home directory that allows you to override these defaults. This file is a copy of the `defaults.config` that ships with the app.  At this stlive is updated with new versions you may need to maintain the settings in this file.
+The first time you run this app it will create a **~/.stlive.json** file in your home directory that allows you to override these defaults. This file is a copy of the `.stlive.json` that ships with the app.  At this stlive is updated with new versions you may need to maintain the settings in this file.
 
 ## Known Issues
 

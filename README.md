@@ -13,7 +13,7 @@ This tool allows you to massively speed up development of your PhoneGap and Senc
 
 Using this tool you can update any Javascript, CSS, SCSS or HTML source file on your development computer and it will instantly load your changes and restart the app on your device or emulators. This means you can live edit and test changes as you save them onto multiple devices! It even preserves the current client side route so in most cases you can immediately retest the active view without having to re-navigate to that view.
 
-This means you can place any number of devices/emulators in front of you and instantly see the effect of your last code change one or more Android, iOS and WP8 devices!  You can even serve up your source code from your local computer onto a cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices.  
+This means you can place any number of devices/emulators in front of you and instantly see the effect of your last code change one or more Android, iOS and WP8 devices!  You can even serve up your source code from your local computer onto a [cloud device testing labs](https://google.com?q=cloud+device+testing+labs) to test your app on hundreds of different mobile devices.  
 
 You can also keep your remote debuggers connected while each update occurs so you save more time by not having to restart your remote debuggers.  Since the Javascript source code is not minified, it's also much easier to debug. You can also elect to load the original unminified Sencha Touch framework files onto the device making debugging of framework code easier.
 
@@ -42,10 +42,8 @@ This tool is based on open source technology developed by the PhoneGap team but 
 It should support the following project types:
 
 - Sencha Touch 2.x + PhoneGap 3.x  + Cordova 3.x (Tested for ST 2.3.2, PG 3.4.0 on Windows 7)
-
 - jQuery Mobile + PhoneGap 3.x  (not yet tested)
 - jQuery Mobile + Cordova 3.x  (not yet tested)
-
 - PhoneGap 3.x standalone (not yet tested)
 - Cordova 3.x standalone (not yet tested)
 
@@ -71,8 +69,8 @@ The first time you run `stlive`, it will create a copy of the [`.stlive.json`](h
 
 `.stlive.json` files configure preferences including:
 
-- `touchSdk` - Location of your Sencha Touch SDK (e.g. "~/bin/Sencha/touch-2.3.2").
-- `senchaCmd`: Version specific Sencha Command (e.g. `"sencha-4.0.4.84"` or just `"sencha"` which will get the last installed)
+- `sdk` - Location of your Sencha Touch SDK (e.g. "~/bin/Sencha/touch-2.3.2").
+- `cmd`: Version specific Sencha Command (e.g. `"sencha-4.0.4.84"` or just `"sencha"` which will get the last installed)
 - `appDomain`: Your company's domain name in reverse (e.g. `"com.sencha"`).
 - `platforms`: Select `android`, `ios` or `wp8` platforms to add to new projects.
 - `build.remote`: Set to `true` to enable PhoneGap Build service and update  `build.username` and `build.password`.  These settings are **copied** into new projects and then read from each project.  
@@ -81,7 +79,7 @@ The first time you run `stlive`, it will create a copy of the [`.stlive.json`](h
 
 **Step 2.** Start your simulators / emulators / devices 
 
-*But hang on ... We don't even have an app yet!*  ... Trust me ... You soon will.
+"*But hang on ... We don't even have an app yet!*"  ... Trust me ... You soon will.
 
 Refer to **[Installation Guide](INSTALL.md)** topics covering **Device Simulators and Emulators** and **Javascript Remote Debugging**. 
 
@@ -167,9 +165,9 @@ You should see the compass compiler detect the change and recompile your SASS fi
 
 For more information on theming Sencha Touch apps refer to ...
 
-- [Getting Started with Sencha Touch 2: Build a Weather Utility App (Part 2)](http://www.sencha.com/blog/getting-started-with-sencha-touch-2-build-a-weather-utility-app-part-2/)
 - [An Introduction to Theming Sencha Touch](http://www.sencha.com/blog/an-introduction-to-theming-sencha-touch)
 - [Video Tutorial](http://www.sencha.com/learn/theming-sencha-touch). 
+- Getting Started with Sencha Touch 2: Build a Weather Utility App: [Part1](http://www.sencha.com/blog/getting-started-with-sencha-touch-2-build-a-weather-utility-app-part-1/), [Part 2](http://www.sencha.com/blog/getting-started-with-sencha-touch-2-build-a-weather-utility-app-part-2/)
 
 ## Live Edit using a Desktop or Mobile Browser
 
@@ -178,6 +176,8 @@ You don't even need a mobile device to use `stlive`. Just open the URL in Chrome
 **NOTE**: Your app should work provided you're not calling any PhoneGap plugin APIs directly. Sencha Touch provides wrapper classes that can emulate some of the PhoneGap APIs when your app is run in a desktop browser (See devices in [Sencha Touch API](http://docs.sencha.com/touch/2.3.2). Example: [Ext.device.FileSystem](http://docs.sencha.com/touch/2.3.2/source/FileSystem.html#Ext-device-FileSystem).  
 
 ## Live Internet Demo or Live Testing  (Cool Feature!)
+
+Often you need to demo or test development versions of your app to friends, beta testers or customers who live outside your firewall. Normally you'd have to setup external web hosting to use a service like 
 
 The  `--localtunnel` option creates an encrypted socket connection from your `stlive` server to new host name that is a random subdomain of **[localtunnel.me](http://localtunnel.me)**. This will expose your `stlive server` server with a random host name that is accessible on the Internet if you know the new random host name. 
 
@@ -222,7 +222,7 @@ Now show an external demo of your app using compressed code:
 
 ## Preparing for MDM or App Store deployment
 
-AppStores or your corporate MDM are unlikely to accept your mobile app with "live edit" instrumentation so we've made it easy to remove this prior to rebuilding for final release and add it back later so you can continue development.  
+AppStores or your corporate [MDM server](http://en.wikipedia.org/wiki/Mobile_device_management) are unlikely to accept your mobile app with "live edit" instrumentation so we've made it easy to remove this prior to rebuilding for final release and add it back later so you can continue development. You also want to run `stlive remove` as part of your CI build service. 
 
 To remove the live editing and rebuild and test ... 
 

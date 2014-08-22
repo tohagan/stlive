@@ -1,11 +1,13 @@
 {
-    // Schema version to support upgrades
+    // Schema version. Required to detect out of date .stlive.json files.
     "_schema": "2.0",
 
+	// ALL the properties in this file can be used as 'stlive' command line options  (e.g. --run will set options.run = true)
+	
     // ** `stlive create` AND `stlive build` OPTIONS **
 
-    "touchSdk": "~/bin/Sencha/touch-2.3.2",
-    "senchaCmd": "sencha-4.0.4.84",
+    "sdk": "~/bin/Sencha/touch-2.3.2",
+    "cmd": "sencha-4.0.4.84",
 
     // Deploy and run the mobile app
     "run": false,

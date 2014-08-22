@@ -7,7 +7,87 @@
     <title>PhoneGap Developer App</title>
     <link rel="stylesheet" href="css/app.css" type="text/css"/>
     <script src="js/ms-viewport.js"></script>
+	<style>
+
+.button {
+	font-family: Arial, Tahoma, Verdana, FreeSans, sans-serif;
+	font-size: medium;
+	color: #606060;
+	text-shadow:0 1px 1px rgba(0, 0, 0, 0.25);
+	display: inline-block;
+	white-space: nowrap;
+	line-height:1em;
+	position:relative;
+	outline: none;
+	overflow: visible;
+	cursor: pointer;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-box-shadow: #00bff3 0 0 5px;
+	-moz-box-shadow: #00bff3 0 0 5px;
+	-o-box-shadow: #00bff3 0 0 5px;
+	box-shadow: #00bff3 0 0 5px;
+
+	border: 1px solid #7DA5C2;
+	background-color: #ADECFF;
+}
+
+/* Removed this rule from app.css
+
+input[type="submit"] {
+    background: @terminal-color;
+    border: none;
+    color: @terminal-background;
+    text-shadow: none;
+    .box-shadow( @terminal-glow 0 0 5px );
+    font-weight: 600;
+    margin-top: 12px;
+    min-width: 100px;
+    padding: 8px 12px;
+    &:active {
+        background: lighten( @terminal-color, 10% );
+    }
+}
+
+*/
+
+/* Replace input[type="submit"] rule to control margin/padding */
+.button_submit {
+    text-shadow: none;
+    font-weight: 600;
+
+    position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 10px;
+	left: 20px;
+	height: 44px;
+	min-width: 100px;
+}
+
+.button_qr {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 10px;
+	right: 20px;
+	height: 44px;
+	width: 44px;
+
+	background: url(img/qrcode.png) 32px 32px no-repeat;
+	background-position: 5px 5px;
+	background-color: #adecff;
+}
+
+div.button_div {
+	margin: 0;
+	padding:  0;
+	position: relative;
+	height: 62px;
+}
+</style>
 </head>
+
 <body ontouchstart="">
     <div class="container">
         <div class="inner">
@@ -20,8 +100,11 @@
                     <div class="cover"></div>
                     <form id="login-form" class="faded hidden" novalidate>
                         <label>&gt; Server Address</label>
-                        <input type="url" id="address" class="offset"></input>
-                        <input type="submit" value="Connect" class="offset"></input>
+                        <input id="address" type="url" ></input>
+						<div class="button_div">
+							<input type="submit" value="Connect" class="button button_submit"></input>
+							<input id="qrcode" type="button" class="button button_qr" value=""></input>
+						</div>
                         <label></label>
                         <label class="info">3-finger tap goes home</label>
                         <label class="info">4-finger tap refreshes</label>

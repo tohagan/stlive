@@ -64,6 +64,11 @@
 
         // Splashscreen:
         "org.apache.cordova.splashscreen",
+		
+		// Barcode & QR Code scanner / generator
+        // Alternatives: http://plugins.cordova.io////search?search=barcode
+        // com.phonegap.plugins.barcodescanner
+        "http://github.com/phonegap-build/BarcodeScanner.git",
 
         // ** REQUIRED BY YOUR APP **
 
@@ -99,11 +104,6 @@
 
         // Debug console:
         // "org.apache.cordova.console",
-
-        // Barcodes
-        // Alternatives: http://plugins.cordova.io////search?search=barcode
-        // com.phonegap.plugins.barcodescanner
-        "http://github.com/phonegap-build/BarcodeScanner.git",
 
         // SQLite
         "https://github.com/brodysoft/Cordova-SQLitePlugin.git"

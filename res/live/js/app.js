@@ -41,6 +41,25 @@ $().ready(function() {
         $address.attr('currentValue', '');
     });
 
+    $('#qrcode').on('click', function(e) {
+        e.preventDefault();
+        cordova.plugins.barcodeScanner.scan(function (result) {
+            /*alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);*/
+
+            if (!result.cancelled) {
+                var $address = $('#address');
+                $address.val(result.text);
+                buildSubmit();
+            }
+        },
+        function (error) {
+            alert("Scanning failed: " + error);
+        });
+    });
+
     // Work around CSS browser issues.
     supportBrowserQuirks();
 });

@@ -2,8 +2,8 @@
     // Schema version. Required to detect out of date .stlive.json files.
     "_schema": "2.0",
 
-	// ALL the properties in this file can be used as 'stlive' command line options  (e.g. --run will set options.run = true)
-	
+    // ALL the properties in this file can be used as 'stlive' command line options  (e.g. --run will set options.run = true)
+
     // ** `stlive create` AND `stlive build` OPTIONS **
 
     "sdk": "~/bin/Sencha/touch-2.3.2",
@@ -64,8 +64,8 @@
 
         // Splashscreen:
         "org.apache.cordova.splashscreen",
-		
-		// Barcode & QR Code scanner / generator
+
+        // Barcode & QR Code scanner / generator
         // Alternatives: http://plugins.cordova.io////search?search=barcode
         // com.phonegap.plugins.barcodescanner
         "http://github.com/phonegap-build/BarcodeScanner.git",
@@ -102,7 +102,7 @@
         // Open new browser windows (InAppBrowser):
         // "org.apache.cordova.inappbrowser",
 
-        // Debug console:
+        // Debug console for Android versions that ignore additional args to console.log()
         // "org.apache.cordova.console",
 
         // SQLite

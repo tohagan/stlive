@@ -391,7 +391,7 @@ The first time you run this app it will create a **~/.stlive.json** file in your
 
 ## Releases
 
-- [HISTORY.md](Release History)
+- [https://github.com/tohagan/stlive/blob/master/HISTORY.md](Release History)
 
 ### Acknowledgements
 

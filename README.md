@@ -389,6 +389,10 @@ The first time you run this app it will create a **~/.stlive.json** file in your
 
 - Refer to the [Issues List](https://github.com/tohagan/stlive/issues/) for more info.
 
+## Releases
+
+- [HISTORY.md](Release History)
+
 ### Acknowledgements
 
 A huge **Thank You** to the **PhoneGap** project team and **Abobe Inc.** who sponsored them; without their having open sourced the **[PhoneGap Developer App](http://app.phonegap.com/)** this app would not exist.

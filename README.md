@@ -236,29 +236,46 @@ You can also use this for an existing Sench Touch app:
     $ stlive add
     $ stlive build --run
 
-## How do I maintain config*.xml files?
+## What do `stlive add` and `stlive remove` do to my project?
 
-NOTE: This is likely to change soon in a future version.  I'm planning to remove the need for multiple config.xml files as I think it's confusing and a 'duplicate code' maintenance risk.  But for now here's how it works ...
+`stlive add`  Performs the following:
 
-**IMPORTANT:**  
+- Adds `phonegap/www/live/` directory containing the live edit app.
+- Adds `phonegap/www/start.html` file.
+- `
+- config.xml`: Changes the start up page to be `start.html`
+- `config.xml`: Sets access origin to be `"*"`
 
-`stlive remove` will **replace** your project's `config.xml` file with the original version of this file `config.orig.xml` created before the app was instrumented to support live editing.  
+`stlive remove`  Performs the following:
 
-Similarly `stlive add` will **replace** your project's `config.xml` file with the live edit version of this file `config.live.xml` that is required to support live editing.
+- Deletes the `phonegap/www/live/` directory 
+- Deletes the `phonegap/www/start.html` file.
+- `config.xml`: Changes the start up page to be `index.html`
+- `config.xml`: Reverts access origin to original origin
 
-So as you make changes to your `config.xml` file you will need to ensure that these changes are transferred to the `config.orig.xml` and `config.live.xml` files so you can safely perform `stlive add` and `stlive remove` commands and not loose your important changes to `config.xml`. 
+Review your `config.xml` and you'll see that `stlive add` inserted comments that are used to enable/disable XML elements when live editing is added or removed by adjusting these comment headers: 
 
-In your Sencha Touch application folder ...
+- `<!-- LIVE:ON:BEGIN -->` and `<!-- LIVE:ON:END -->`
+- `<!-- LIVE:OFF:BEGIN -->` and `<!-- LIVE:OFF:END -->`
 
-- `config.xml` = Current active PhoneGap build configuration. Used by `stlive build` or `sencha app build native` that copies the file into phonegap/www/config.xml .  PhoneGap builder then copies it from there into platform specific folders so it's used by each platform builder.  
+You can use these to manage plugin, access origin constraints or other property differences between live editting and production builds. **You must not insert additional XML comments between these BEGIN/END markers**.
 
-Files added by **Sencha Touch Live**:
+**NOTE**: Prior to version 0.2.2, `stlive` used `config.live.xml` and `config.orig.xml` files to manage these differences. These files are no longer used.  
 
-- `config.orig.xml` = Original `config.xml` before stlive is added.  `stlive remove`  command copies this file to `config.xml`. Maintain this file as the version you use in final App Store release. 
-- `config.live.xml`  = Settings required to start both Live Update App and Your App. `stlive add` command copies this file to config.xml
+## Adding/Removing Cordova/PhoneGap plugins
+
+When adding and removing project plugins you should 
+
+    $ cd phonegap
+    $ cordova plugin add <plugin URL>
+
+Then update `config.xml` with any additional XML elements as required by your new plugin. 
+
+For Sencha Touch projects, you should update the `config.xml` file in your Sencha Touch project folder. It will be copied over the `phonegap/www/config.xml` file when you perform a `sencha` or `stlive` build.  Other projects like jQuery Mobile can just maintain the `phonegap/www/config.xml` file.
 
 **PhoneGap's Documentation**:
 
+- [Adding Plugins](http://docs.phonegap.com/en/3.5.0/guide_cli_index.md.html#The%20Command-Line%20Interface_add_plugin_features)
 - [config.xml](http://docs.phonegap.com/en/3.5.0/config_ref_index.md.html) .
 - [Configuring PhoneGap](http://docs.build.phonegap.com/en_US/)
 
@@ -369,8 +386,8 @@ The first time you run this app it will create a **~/.stlive.json** file in your
 ## Known Issues
 
 - Navigating back to the start page and then re-selecting the Live Update link often fails to restart the Live Update client.  **Workaround**: Stop and restart the mobile app or redeploy it using `stlive run`.  
- 
-- `stlive run` always recompiles the app and installs on one device.  I'm looking at adding an `stlive install` command that will reinstall and run the app for ALL attached devices.  
+
+- Refer to the [Issues List](https://github.com/tohagan/stlive/issues/) for more info.
 
 ### Acknowledgements
 

@@ -1,0 +1,11 @@
+
+    <!-- Warning: DON'T add comments between BEGIN and END markers -->
+    <!-- LIVE:ON:BEGIN -->
+    <access origin="*" />
+    <content src="start.html" />
+    <!-- LIVE:ON:END -->
+
+    <!-- LIVE:OFF:BEGIN -->
+$&
+    <content src="index.html" />
+    <!-- LIVE:OFF:END -->

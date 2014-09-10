@@ -1,5 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.js text eol=lf
+*.json test eol=lf
 
 # Standard to msysgit
 *.doc	 diff=astextplain

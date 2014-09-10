@@ -89,7 +89,7 @@ Open a terminal widow. For OSX, you may need to change the background color to b
 
     $ stlive create --run DemoApp
 
-At this runs you will see the highlighted Sencha and Cordova commands it's using to generate your new new app based on your settings.  If all is well, at the end of this process you should have a new mobile app deployed and running on your devices/emulators/simulator.  If you need to fix any configuration issues and perform a rebuild you can run `stlive build --run` in the new `DemoApp` project subdirectory.
+As this runs you will see the highlighted Sencha and Cordova commands it's using to generate your new new app based on your settings.  If all is well, at the end of this process you should have a new mobile app deployed and running on your devices/emulators/simulator.  If you need to fix any configuration issues and perform a rebuild you can run `stlive build --run` in the new `DemoApp` project subdirectory.
 
 **Step 4.** Now run a live update server from your new `DemoApp` project folder.  The server will then display the **IP Address** and **Port number** it's listened on.
 

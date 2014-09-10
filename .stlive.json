@@ -2,8 +2,8 @@
     // Schema version. Required to detect out of date .stlive.json files.
     "_schema": "2.0",
 
-    // ALL the properties in this file can be used as 'stlive' command line options 
-	// Example:  --run will set options.run = true)
+    // ALL the properties in this file can be used as 'stlive' command line options
+    // Example:  --run will set options.run = true)
 
     // ** `stlive create` AND `stlive build` OPTIONS **
 
@@ -161,12 +161,15 @@
         ]
     },
 
+    // Array of additional file patterns added to the default watch list by projects.
+    addWatch: null,
+
     // ** Development options  **
     "logLevel": 2,  // 1=DEBUG, 2=INFO, 3=WARN, 4=ERROR, 5=CRITICAL
 
     // WARNING: stlive create: Kills Android 'adb' and deletes existing project if it exists
     "deleteAppDir": false,
-	
-	// Allows use of --version 
-	"version": false
+
+    // Allows use of --version
+    "version": false
 }

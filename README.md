@@ -177,15 +177,15 @@ You don't even need a mobile device to use `stlive`. Just open the URL in Chrome
 
 ## Live Internet Demo or Live Testing  (Cool Feature!)
 
-Often you need to demo or test development versions of your app to friends, beta testers or customers who live outside your firewall. Normally you'd have to setup external web hosting to use a service like 
+Often you need to demo or test development versions of your app to friends, beta testers or customers who live outside your firewall. Normally you'd have to setup external web hosting to host your app.
 
-The  `--localtunnel` option creates an encrypted socket connection from your `stlive` server to new host name that is a random subdomain of **[localtunnel.me](http://localtunnel.me)**. This will expose your `stlive server` server with a random host name that is accessible on the Internet if you know the new random host name. 
+The  `--localtunnel` option creates an encrypted socket connection from your `stlive` server to new host name that is a random subdomain of **[localtunnel.me](http://localtunnel.me)**. This will expose your `stlive server` server with a random subdomain that is accessible on the Internet if you know the new name. 
 
 	$ stlive serve --localtunnel
  
 You can now use this external URL for browser or device testing, or to demo or test development versions of your app to friends, testers or customers. You can even connect your app server to cloud based [mobile device testing lab](https://google.com?q=mobile+device+testing+lab) to test your app on hundreds of different mobile devices or use it when you visit an [Open Device Lab](http://lab-up.org).  
 
-**SECURITY WARNING:** While the node app server is generally regarded as secure enabling this feature effectively *punches a hole in your firewall*. In theory it exposes your source files as read only and the random domain name provides some additional protection however there is some small risk that a security vulnerability exists. NO penetration testing has been conducted. This feature is intended for brief demoes and testing only. Not recommended for a production service or prolonged or frequent use.  **As per Apache 2.0 License - No liability is accepted. Use this at your own risk!**  
+**SECURITY WARNING:** While the node app server is generally regarded as secure, enabling this feature effectively *punches a hole in your firewall*. In theory it only exposes your source files as read only and the random domain name provides some additional protection however there is some small risk that a security vulnerability exists. NO penetration testing has been conducted. This feature is intended for brief demoes and testing only. Not recommended for a production service or prolonged or frequent use.  **As per Apache 2.0 License - No liability is accepted. Use at your own risk!**
 
 ### Example 1 - Create a named URL endpoint outside your firewall:
 
@@ -219,6 +219,21 @@ Now show an external demo of your app using compressed code:
     Starting in d:\Projects\STLIVE-Sandbox\MyApp ...
 	listening on 192.168.7.54:3000
 	localtunnel : https://jgwpgspbip.localtunnel.me
+
+## Example 3  - Use a QR Code to connect devices.
+
+This will display a QR code of the server **IP address and port** so you can connect local devices:  
+
+	$ stlive serve --qr
+
+This will display QR codes on the terminal for both **local IP address** and the **remote localtunnel.me subdomain**.
+
+	$ stlive serve --localtunnel --qr
+
+If you're demoing your app to friends, they will need to first install your compiled app on their devices but provided the plugins don't change you then just share your screen over Skype or Google+ and they can use the 2nd QR code on your screen to connect their local devices to your app and load the latest version via the localtunnel subdomain.
+
+**NOTE:** Each time you restart the server the localtunnel host name will change.
+
 
 ## Preparing for MDM or App Store deployment
 

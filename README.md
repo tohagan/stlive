@@ -415,3 +415,11 @@ A huge **Thank You** to the **PhoneGap** project team and **Abobe Inc.** who spo
 ### Licence
 
 - Apache 2.0 
+
+### Additional Sencha Projects:
+
+Other Sencha tools I've developed ...
+
+  - [Sencha Ico Moon](https://github.com/tohagan/sencha-ico-moon) - Quickly create and install your custom icons from ICO Moon into your Sencha Touch or ExtJS project.  Converts Ico Moon project files into Sencha SASS icon files.  Includes Step by Step instructions.
+  
+  - Coming Soon: AutoLogger - Automated rule based logging API for Sencha ExtJS & Sencha Touch. Performance optimised call logging that records: class and method name, call arguments, response, exceptions, timing and nested call depth for any pattern of namespace, class or method name. Significantly reduces diagnostic logging coding effort and speeds up defect diagnosis. Entire classes or namespaces can be logged with a single line rule. Displays as collapsible regions and hyperlinked to log calls in Chrome console. Zero overheads when disabled so ideal for diagnosing faults in both development and production builds.  Additional rules can select manual logging level based on class or method patterns.

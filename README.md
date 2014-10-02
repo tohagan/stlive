@@ -121,11 +121,19 @@ As this runs you will see the highlighted Sencha and Cordova commands it's using
 
 **Step 8.** Rebuilding and Redeployment
 
-If you need to rebuild and redeploy your app (e.g. after adding/removing plugins) you can run ...
+If you've added new Sencha classes or changed class dependencies you probably only need to run:
+
+    $ sencha app refresh
+
+This will just rebuild the `bootstrap.js` and `bootstrap.json` files (not perform a recompile). These files are watched by `stlive serve` and so you can do this during a live edit session using a separate terminal window.
+
+If you need to rebuild and redeploy your app (e.g. after adding/removing plugins or changing the `config.xml` file) you can run ...
 
     $ stlive build --run
 
-This is basically the same as running `sencha app build --run native` but it uses the version of Sencha Command configured in your settings file which you can define as a local version controlled file in your project folder. In the future we may add additional environment variable settings so for example could might select other SDK version and settings as well. This will make it easy to switch between projects without having to reconfigure your build environment. 
+This is basically the same as running `sencha app build --run native` but it uses the version of Sencha Command configured in your settings file which you can define as a local version controlled file in your project folder.  It should stop your device app and deploy and run the recompiled app.  
+
+In the future we may add additional environment variable settings so for example could might select other SDK version and settings as well. This will make it easy to switch between projects without having to reconfigure your build environment.
 
 ## Live Edit SASS style sheet files
 
@@ -251,14 +259,14 @@ You can also use this for an existing Sench Touch app:
     $ stlive add
     $ stlive build --run
 
-## What do `stlive add` and `stlive remove` do to my project?
+## What do `stlive create`, `stlive add` and `stlive remove` do to my project files?
 
-`stlive add`  Performs the following:
+`stlive create` and `stlive add` Perform the following:
 
 - Adds `phonegap/www/live/` directory containing the live edit app.
 - Adds `phonegap/www/start.html` file.
-- `
-- config.xml`: Changes the start up page to be `start.html`
+
+- `config.xml`: Changes the start up page to be `start.html`
 - `config.xml`: Sets access origin to be `"*"`
 
 `stlive remove`  Performs the following:
@@ -268,12 +276,19 @@ You can also use this for an existing Sench Touch app:
 - `config.xml`: Changes the start up page to be `index.html`
 - `config.xml`: Reverts access origin to original origin
 
-Review your `config.xml` and you'll see that `stlive add` inserted comments that are used to enable/disable XML elements when live editing is added or removed by adjusting these comment headers: 
+Review your `config.xml` and you'll see that `stlive create` and `stlive add` inserts XML comments that are used to enable/disable XML elements when live editing is added or removed by adjusting these comment headers:
 
-- `<!-- LIVE:ON:BEGIN -->` and `<!-- LIVE:ON:END -->`
-- `<!-- LIVE:OFF:BEGIN -->` and `<!-- LIVE:OFF:END -->`
 
-You can use these to manage plugin, access origin constraints or other property differences between live editting and production builds. **You must not insert additional XML comments between these BEGIN/END markers**.
+    <!-- LIVE:ON:BEGIN -->
+      ... elements used when live editting is ON ...
+    <!-- LIVE:ON:END -->`   
+
+
+    <!-- LIVE:OFF:BEGIN 
+      ... elements used when live editting is OFF ...
+         LIVE:OFF:END -->`   
+
+You can use these to manage plugin, access origin constraints or other property differences between live editting and production builds. **Do not insert additional XML comments between these BEGIN/END markers** or they will not work.
 
 **NOTE**: Prior to version 0.2.2, `stlive` used `config.live.xml` and `config.orig.xml` files to manage these differences. These files are no longer used.  
 

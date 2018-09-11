@@ -15,10 +15,6 @@
     "scripts": {
         "test": "jasmine-node --color spec"
     },
-    "author": {
-        "name": "Tony O'Hagan",
-        "email": "tony@ohagan.name"
-    },
     "keywords": [
         "phonegap",
         "cordova",

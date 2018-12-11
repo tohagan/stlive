@@ -1,3 +1,4 @@
+This app is now out of date and not supported.
 
 ## Live edit `Sencha Touch`, `jQuery Mobile` + `PhoneGap/Cordova` apps 
 
